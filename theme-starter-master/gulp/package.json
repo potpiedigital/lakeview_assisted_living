@@ -1,7 +1,7 @@
 {
-  "name": "projectname",
+  "name": "Lakeview Assisted Living",
   "version": "1.0.0",
-  "description": "Project Name build for Elegant Seagulls.",
+  "description": "Lakeview Assisted Living build for Potpie Digital.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +10,8 @@
     "type": "git",
     "url": "add git url here"
   },
-  "author": "Elegant Seagulls <yourname@elegantseagulls.com>",
-  "homepage": "https://github.com/ElegantSeagulls/projectname",
+  "author": "Potpie Digital <mark@potpie.digital>",
+  "homepage": "https://potpie.digital",
   "devDependencies": {
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
