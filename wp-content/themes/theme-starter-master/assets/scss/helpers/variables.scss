@@ -1,0 +1,40 @@
+// sass-lint:disable space-before-colon
+
+//
+// Project Variables
+//
+
+// Colors
+$white  : #fff;
+$olive  : #585749;
+$l-gold : #a8997a;
+$gold   : #88744a;
+$black  : #222222;
+$m-gray : #9d9d94;
+$gray   : #767676;
+$l-gray : #edecec;
+$s-gray : #838383;
+$tan    : #e7e4df;
+
+// Breakpoints
+$desktop    : 1640px;
+$desktop-sm : 1388px;
+$laptop-l   : 1340px;
+$laptop     : 1240px;
+$landscape  : 1140px;
+$portrait   : 860px;
+$mobile     : 670px;
+$mobile-sm  : 360px;
+
+// Font weights
+$x-light : 200;
+$light   : 300;
+$regular : 400;
+$bold    : 700;
+
+// superior-scss
+$superior-cols   : 12;
+$superior-gutter : 30px;
+
+// Easing
+$ease-out-cubic: cubic-bezier(.215, .61, .355, 1);
