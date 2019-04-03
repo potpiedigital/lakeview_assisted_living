@@ -7,11 +7,6 @@ Template Name: homepage
 <?php get_header(); ?>
 
 <main>
-<div>
-<h1>This is a test</h1>
-<h2>You passed</h2>
-</div>
-
 	<?php if (have_posts()) : ?>
 
 		<?php while (have_posts()) : the_post(); //BEGIN: The Loop ?>

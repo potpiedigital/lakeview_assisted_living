@@ -13,7 +13,7 @@ function remove_dashboard_widgets()
 
   // load the metaboxes array as a global variable
 
-   > global $wp_meta_boxes;
+  global $wp_meta_boxes;
 
   // we need to manually unset each widget
 
@@ -45,7 +45,7 @@ function remove_menus()
 
   // setup the global menu variable
 
-   > global $menu;
+  global $menu;
 
   // this is an array of the menu item names we wish to remove
 
@@ -88,7 +88,6 @@ remove_meta_box('slugdiv', 'post', 'normal'); // post slug
 remove_meta_box('slugdiv', 'page', 'normal'); // page slug
 remove_meta_box('pageparentdiv', 'page', 'side'); // Page Parent
 
-}
 
 add_action('admin_menu', 'remove_extra_meta_boxes');
 
