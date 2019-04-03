@@ -1,0 +1,410 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-26 02:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: admin/class-applyonline-admin.php:139
+#, php-format
+msgid ""
+"%sApply Online%s requires your attention. %sClick Here%s for settings or "
+"close this reminder."
+msgstr ""
+
+#: admin/class-applyonline-admin.php:169
+msgid "Expires on: "
+msgstr ""
+
+#: admin/class-applyonline-admin.php:171
+msgid "Never expires"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:172
+msgid "Leave empty for never closing this ad"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:308
+msgid "Ad Title"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:309
+msgid "Applicant"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:310
+msgid "Tags"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:311
+msgid "Date"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:377
+msgid "Undefined"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:503
+msgid "Attachment"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:525
+msgid "Notes"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:625
+msgid "Ad Features"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:634
+msgid "Application Form Builder"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:643
+msgid "Application Details"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:966 admin/class-applyonline-admin.php:967
+#: admin/class-applyonline-admin.php:967
+msgid "Settings"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:966 admin/class-applyonline-admin.php:993
+msgctxt "admin"
+msgid "Apply Online"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:970
+#, php-format
+msgid "%s Filter"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1083
+msgid "General"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1084
+msgid "General settings of the plugin"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1090
+msgid "Template"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1091
+msgid "Application form template for new ads."
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1096 includes/class-applyonline.php:412
+msgid "Applications"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1097
+msgid "Add status to each application you have received."
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1102
+msgid "Ad Types"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1103
+msgid "Define different types of ads e.g. Careers, Classes, Memberships."
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1116
+msgid "FAQs"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1117
+msgid "Frequently Asked Questions."
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1122
+msgid "Extend"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1123
+msgid "Extend Plugin"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1149
+msgid "List of e-mails to get application alerts"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1153
+msgid "Required form fields notice"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1157
+msgid "Default Notice"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1161
+msgid "Application submission message"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1165
+msgid "Default Message"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1169
+msgid "Application form title"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1172
+msgid "Default: Apply Online"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1176
+msgid "Application form Submit Button"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1179
+msgid "Default: Submit"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1183
+msgid "Shortcode archive Read More button"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1186
+msgid "Default: Read More"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1190
+msgid "Date format for date fields"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1196
+msgid "Thank you page"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1218
+msgid "Ads slug"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1224
+msgid "Current permalink is "
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1229
+msgid "Max file attachment size"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1232
+msgid "Max limit by server is "
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1236
+msgid "Allowed file types"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1239
+msgid "Comma separated names of file extentions. Default: "
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1340
+msgid "Singular i. e. Career"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1343
+msgid "Plural i. e. Careers"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1346
+msgid "Description"
+msgstr ""
+
+#: admin/class-applyonline-admin.php:1454
+msgid "How to create an ad?"
+msgstr ""
+
+#: includes/applyonline-functions.php:135
+msgid "Category"
+msgstr ""
+
+#: includes/applyonline-functions.php:135
+msgid "Categories"
+msgstr ""
+
+#: includes/applyonline-functions.php:135
+msgid "Type"
+msgstr ""
+
+#: includes/applyonline-functions.php:135
+msgid "Types"
+msgstr ""
+
+#: includes/applyonline-functions.php:135
+msgid "Location"
+msgstr ""
+
+#: includes/applyonline-functions.php:135
+msgid "Locations"
+msgstr ""
+
+#: includes/applyonline-functions.php:250
+msgid "example"
+msgstr ""
+
+#: includes/class-applyonline-activator.php:68
+msgid "Shortlisted"
+msgstr ""
+
+#: includes/class-applyonline.php:267
+msgid "Apply Online Plugins"
+msgstr ""
+
+#: includes/class-applyonline.php:332
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: includes/class-applyonline.php:333
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: includes/class-applyonline.php:334
+#, php-format
+msgid "Parent %s"
+msgstr ""
+
+#: includes/class-applyonline.php:335
+#, php-format
+msgid "Parent %s:"
+msgstr ""
+
+#: includes/class-applyonline.php:336
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: includes/class-applyonline.php:337
+#, php-format
+msgid "Update %s"
+msgstr ""
+
+#: includes/class-applyonline.php:338
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: includes/class-applyonline.php:339
+#, php-format
+msgid "New %s Name"
+msgstr ""
+
+#: includes/class-applyonline.php:376
+msgid "Create Ad"
+msgstr ""
+
+#: includes/class-applyonline.php:377
+msgid "New Ad"
+msgstr ""
+
+#: includes/class-applyonline.php:378
+msgid "Edit Ad"
+msgstr ""
+
+#: includes/class-applyonline.php:379
+msgid "Ads"
+msgstr ""
+
+#: includes/class-applyonline.php:383
+msgid "All Ads"
+msgstr ""
+
+#: includes/class-applyonline.php:408 includes/class-applyonline.php:409
+msgid "No applications found."
+msgstr ""
+
+#: includes/class-applyonline.php:418
+msgid "List of Applications"
+msgstr ""
+
+#: includes/class-applyonline.php:541
+msgid "Read More"
+msgstr ""
+
+#: includes/class-applyonline.php:557
+msgid "Sorry, we could not find what you were looking for."
+msgstr ""
+
+#: includes/class-applyonline.php:643
+#, php-format
+msgid "%s is oversized. Must be under %s MB"
+msgstr ""
+
+#: includes/class-applyonline.php:650
+#, php-format
+msgid "Invalid file %s. Allowed file types are %s"
+msgstr ""
+
+#: includes/class-applyonline.php:677
+msgid "Session Expired, please try again"
+msgstr ""
+
+#: includes/class-applyonline.php:694
+msgid " is invalid."
+msgstr ""
+
+#: includes/class-applyonline.php:698
+msgid " is not a file."
+msgstr ""
+
+#: includes/class-applyonline.php:699 includes/class-applyonline.php:705
+msgid " is required."
+msgstr ""
+
+#: includes/class-applyonline.php:759
+msgid ""
+"Form has been submitted successfully. If required, we will get back to you "
+"shortly."
+msgstr ""
+
+#: public/class-applyonline-public.php:168
+msgid "Form ID is missing"
+msgstr ""
+
+#: public/class-applyonline-public.php:181
+msgid "Submit"
+msgstr ""
+
+#: public/class-applyonline-public.php:239
+msgctxt "public"
+msgid "Apply Online"
+msgstr ""
+
+#: public/class-applyonline-public.php:241
+msgid "Salient Features"
+msgstr ""
+
+#. Name of the plugin
+msgid "Apply Online"
+msgstr ""
+
+#. Description of the plugin
+msgid "Post ads and start receiving applications online."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.linkedin.com/in/farhan-noor"
+msgstr ""
+
+#. Author of the plugin
+msgid "Spider Teams"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://spiderteams.com"
+msgstr ""
