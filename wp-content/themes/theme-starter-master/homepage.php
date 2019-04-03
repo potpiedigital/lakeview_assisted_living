@@ -7,16 +7,15 @@ Template Name: homepage
 <?php get_header(); ?>
 
 <main>
+  <div>
+    <h1>This is a test</h1>
+  </div>
 	<?php if (have_posts()) : ?>
 
 		<?php while (have_posts()) : the_post(); //BEGIN: The Loop ?>
 
 			<!--BEGIN: Post-->
 			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-
-				<h1><?php the_title(); ?></h1>
-				<time datetime="<?php the_time('c'); ?>" pubdate="pubdate"><?php the_time('F jS, Y'); ?></time>
-				<p>by <?php the_author() ?></p>
 
 				<div class="entry">
 					<?php the_content(); ?>
