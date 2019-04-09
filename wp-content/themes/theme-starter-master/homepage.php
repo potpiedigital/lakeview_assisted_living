@@ -7,44 +7,12 @@ Template Name: homepage
 <?php get_header(); ?>
 
 <main>
-  <div>
-    <h1>This is a test</h1>
-  </div>
-	<?php if (have_posts()) : ?>
-
-		<?php while (have_posts()) : the_post(); //BEGIN: The Loop ?>
-
-			<!--BEGIN: Post-->
-			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
-
-				<div class="entry">
-					<?php the_content(); ?>
-				</div>
-
-			</div>
-			<!--END: Post-->
-
-			<?php wp_link_pages(); //this allows for multi-page posts delete if not using ?>
-
-		<?php endwhile; ?>
-
-			<!--BEGIN: Page Nav-->
-			<?php if ( $wp_query->max_num_pages > 1 ) : // if there's more than one page turn on pagination ?>
-		    <nav class="pagination">
-		      <ul>
-		        <li><?php next_posts_link('Next Page') ?></li>
-		        <li><?php previous_posts_link('Previous Page') ?></li>
-		      </ul>
-		    </nav>
-			<?php endif; ?>
-			<!--END: Page Nav-->
-
-		<?php else : ?>
-
-			<h2>No posts were found :(</h2>
-
-	<?php endif; //END: The Loop ?>
-
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<div class="home-page-content">
+		<?php flexible_content('homepage_blocks');
+		?>
+	</div>
+	<?php endwhile; endif; ?>
 </main>
 
 <?php get_footer(); ?>
