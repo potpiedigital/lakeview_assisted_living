@@ -5,7 +5,7 @@
 <head>
 
 	<meta charset="<?php bloginfo( 'charset' ); // lets you change the charset from within wp, defaults to UTF8 ?>" />
-
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|IBM+Plex+Sans" rel="stylesheet">
 	<!--Forces latest IE rendering engine & chrome frame-->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
@@ -31,10 +31,12 @@
 <body <?php body_class(); ?>>
 
 		<header class="header" id="site-header" role="banner">
-    <nav id="main-nav" role="navigation">
-			<?php wp_nav_menu('menu=mainNav'); // create the mainNav menu inside Appearance menus and go to town -- for more on menus see: https://developer.wordpress.org/reference/functions/wp_nav_menu/ ?>
-		</nav>
-
+      <div class="main-navigation">
+        <a href="<?php echo home_url(); ?>"><img class= src="<?php echo get_template_directory_uri();?>/assets/img/Lakeview_logo.png" /></a>
+        <nav class="main-nav" id="main-nav" role="navigation">
+          <?php wp_nav_menu('menu=mainNav'); // create the mainNav menu inside Appearance menus and go to town -- for more on menus see: https://developer.wordpress.org/reference/functions/wp_nav_menu/ ?>
+        </nav>
+      </div>
 			<!-- depending on what the mock calls for text, image, svg you can handle this differently images should get alt text that matches the page title svgs should get visually hidden elements we can look into adding title to the anchor tag and see if that gets pulled in for SEO -->
 			<?php if ( is_front_page() ) { ?>
 				<h1 id="site-title"><a href="/"><?php bloginfo('name'); ?></a></h1>

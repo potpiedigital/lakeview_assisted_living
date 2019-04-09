@@ -6,3 +6,32 @@ body {
   background-image: url('http://localhost:8888/wp-content/uploads/2019/04/lakeview_hero.jpg');
   height: 90vh;
 }
+
+#site-title,
+#site-description {
+  display: none;
+}
+
+.main-navigation {
+  background-color: $white;
+  opacity: 0.7;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3em 1em;
+
+  li {
+
+    a {
+      text-decoration: none;
+      color: $black;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+}
