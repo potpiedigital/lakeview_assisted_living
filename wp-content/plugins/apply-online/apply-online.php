@@ -11,12 +11,12 @@
  * Plugin Name:       Apply Online
  * Plugin URI:        https://www.linkedin.com/in/farhan-noor
  * Description:       Post ads and start receiving applications online. 
- * Version:           1.9.91
+ * Version:           1.9.92
  * Author:            Spider Teams
  * Author URI:        https://spiderteams.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       apply-online
+ * Text Domain:       ApplyOnline
  * Domain Path:       /languages
  */
 
@@ -24,7 +24,7 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-define( 'APPLYONLINE_VERSION', '1.9.91' );
+define( 'APPLYONLINE_VERSION', '1.9.92' );
 
 require_once( 'wp_autoupdate.php' );
 /**

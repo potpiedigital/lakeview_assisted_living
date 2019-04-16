@@ -154,7 +154,7 @@ class Applyonline {
 	private function set_locale() {
 
 		$plugin_i18n = new Applyonline_i18n();
-		$plugin_i18n->set_domain( $this->get_plugin_name() );
+		$plugin_i18n->set_domain( 'ApplyOnline' );
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -174,7 +174,7 @@ class Applyonline {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
                 $this->loader->add_action('aol_schedule_event', $plugin_admin, 'close_ad');
-                
+                $this->loader->add_action( 'set_current_user', $plugin_admin, 'output_attachment' );
                 /*Schedule Ad*/
                 $this->loader->add_filter('display_post_states', $plugin_admin, 'add_closed_state', 10, 2);
                 $this->loader->add_action('post_submitbox_misc_actions', $plugin_admin, 'aol_ad_closing', 1);
@@ -182,6 +182,9 @@ class Applyonline {
                 
                 /*Admin Notice*/
                 $this->loader->add_action('admin_notices', $plugin_admin, 'settings_notice');
+                $this->loader->add_action('wp_ajax_aol_dismiss_notice', $plugin_admin, 'admin_dismiss_notice');
+                
+                /*User Insertion Sanitiziation for AOL Manager Role*/
                 $this->loader->add_action('wp_ajax_aol_dismiss_notice', $plugin_admin, 'admin_dismiss_notice');
 	}
 
@@ -272,7 +275,7 @@ class Applyonline {
 		'is_automatic' => TRUE,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
                 'strings'      => array(
-                    'menu_title'                      => __( 'Apply Online Plugins', 'apply-online' ),
+                'menu_title'                      => __( 'Apply Online Plugins', 'ApplyOnline' ),
                 )
 	);
 
@@ -288,10 +291,9 @@ class Applyonline {
             
             if($saved_version < 1.61){
                 Applyonline_Activator::fix_roles();
-                update_option('aol_version', $this->get_version(), TRUE);                
+                update_option('aol_version', $this->get_version(), TRUE);
             }
         }
-        
         
         function load_dashicons_front_end() {
           wp_enqueue_style( 'dashicons' );
@@ -311,12 +313,12 @@ class Applyonline {
             if($singular != NULL){
             $labels=array(
                 'name'  => $plural,
-                'singular_name'  => __($singular, 'apply-online' ),
-                'add_new_item'       => __('Add New '.$singular, 'apply-online' ),
-		'new_item'           => __( 'New '.$singular, 'apply-online' ),
-		'edit_item'          => __( 'Edit '.$singular, 'apply-online' ),
-		'view_item'          => __( 'View '.$singular, 'apply-online' ),
-                'search_items'      => __('Search '.$plural, 'apply-online'),
+                'singular_name'  => __($singular, 'ApplyOnline' ),
+                'add_new_item'       => sprintf(__('Add New %s', 'ApplyOnline'), $singular),
+		'new_item'           => sprintf(__( 'New %s', 'ApplyOnline' ), $singular),
+		'edit_item'          => sprintf(__( 'Edit %s', 'ApplyOnline' ), $singular),
+		'view_item'          => sprintf(__( 'View %s', 'ApplyOnline' ), $singular),
+                'search_items'      => sprintf(__('Search %s', 'ApplyOnline'), $plural),
                 );
             }
 
@@ -336,19 +338,19 @@ class Applyonline {
             register_post_type('aol_'.sanitize_key($cpt), array_merge($args, $args_custom));
         }
         
-        public function taxonomy_generator($singular, $plural,  $hierarchical = TRUE){
+        public function taxonomy_generator($key, $singular, $plural,  $hierarchical = TRUE){
             // Add new taxonomy, make it hierarchical (like categories)
             $labels = array(
-                'name'              => __( $plural, 'apply-online' ),
-                'singular_name'     => __( $singular, 'apply-online' ),
-                'search_items'      => sprintf(__( 'Search %s', 'apply-online' ), $plural),
-                'all_items'         => sprintf(__( 'All %s', 'apply-online' ), $plural),
-                'parent_item'       => sprintf(__( 'Parent %s', 'apply-online' ), $singular),
-                'parent_item_colon' => sprintf(__( 'Parent %s:', 'apply-online' ), $singular),
-                'edit_item'         => sprintf(__( 'Edit %s', 'apply-online' ), $singular),
-                'update_item'       => sprintf(__( 'Update %s', 'apply-online' ), $singular),
-                'add_new_item'      => sprintf(__( 'Add New %s', 'apply-online' ), $singular),
-                'new_item_name'     => sprintf(__( 'New %s Name', 'apply-online' ), $singular),
+                'name'              => $plural,
+                'singular_name'     => $singular,
+                'search_items'      => sprintf(__( 'Search %s', 'ApplyOnline' ), $plural),
+                'all_items'         => sprintf(__( 'All %s', 'ApplyOnline' ), $plural),
+                'parent_item'       => sprintf(__( 'Parent %s', 'ApplyOnline' ), $singular),
+                'parent_item_colon' => sprintf(__( 'Parent %s:', 'ApplyOnline' ), $singular),
+                'edit_item'         => sprintf(__( 'Edit %s', 'ApplyOnline' ), $singular),
+                'update_item'       => sprintf(__( 'Update %s', 'ApplyOnline' ), $singular),
+                'add_new_item'      => sprintf(__( 'Add New %s', 'ApplyOnline' ), $singular),
+                'new_item_name'     => sprintf(__( 'New %s Name', 'ApplyOnline' ), $singular),
             );
             
             $capabilities = array(
@@ -365,16 +367,16 @@ class Applyonline {
                     'show_admin_column' => true,
                     'query_var'         => true,
                     'show_in_menu'      => false,
-                    'rewrite'           => array( 'slug' => sanitize_key('ad-'.$singular) ),
+                    'rewrite'           => array( 'slug' => sanitize_key('ad-'.$key) ),
                     'capabilities'      => $capabilities,
             );
             $cpts = get_option_fixed('aol_ad_types', array());
             $types = array();
             if(!is_array($types)) $types = array();
             foreach ($cpts as $cpt => $val){
-                if(isset($val['filters']) AND in_array(sanitize_key($singular), (array)$val['filters'])) $types[] = 'aol_'.$cpt;
+                if(isset($val['filters']) AND in_array(sanitize_key($key), (array)$val['filters'])) $types[] = 'aol_'.$cpt;
             }
-            register_taxonomy( 'aol_ad_'.sanitize_key($singular), $types, $args );
+            register_taxonomy( 'aol_ad_'.sanitize_key($key), $types, $args );
         }
 
 
@@ -385,14 +387,14 @@ class Applyonline {
             $slug = get_option_fixed('aol_slug', 'ads');
             /*Register Main Post Type*/
             $labels=array(
-                'add_new'  => __('Create Ad', 'apply-online' ),
-                'add_new_item'  => __('New Ad', 'apply-online' ),
-                'edit_item'  => __('Edit Ad', 'apply-online' ),
-                'all_items' => __('Ads', 'apply-online' ),
-                //'menu_name' => __('Apply Online', 'apply-online' )
+                'add_new'  => __('Create Ad', 'ApplyOnline' ),
+                'add_new_item'  => __('New Ad', 'ApplyOnline' ),
+                'edit_item'  => __('Edit Ad', 'ApplyOnline' ),
+                'all_items' => __('Ads', 'ApplyOnline' ),
+                //'menu_name' => __('Apply Online', 'ApplyOnline' )
             );
             $args=array(
-                'label' => __( 'All Ads', 'apply-online' ),
+                'label' => __( 'All Ads', 'ApplyOnline' ),
                 'labels'=> $labels,
                 'show_in_menu'  => true,
                 'description' => __( 'All Ads' ),
@@ -411,23 +413,23 @@ class Applyonline {
             
             $filters = aol_ad_filters();
             foreach($filters as $key => $val){
-                $this->taxonomy_generator($key, $val);
+                $this->taxonomy_generator($key, $val['singular'], $val['plural']);
             }
             
             /*Register Applications Post Type*/
             $lables= array(
                 'edit_item'=>'Application',
-                'not_found' => __( 'No applications found.', 'apply-online' ),
-                'not_found_in_trash'  => __( 'No applications found.', 'apply-online' )
+                'not_found' => __( 'No applications found.', 'ApplyOnline' ),
+                'not_found_in_trash'  => __( 'No applications found.', 'ApplyOnline' )
                 );
             $args=array(
-                'label' => __( 'Applications', 'apply-online' ),
+                'label' => __( 'Applications', 'ApplyOnline' ),
                 'labels' => $lables,
                 'show_ui'           => true,
                 'public'   => false,
                 'exclude_from_search'=> true,
                 'capability_type'   => array('application', 'applications'),
-                'description' => __( 'List of Applications', 'apply-online' ),
+                'description' => __( 'List of Applications', 'ApplyOnline' ),
                 'supports' => array('comments', 'editor'),
                 'map_meta_cap'      => TRUE,
                 'show_in_menu'      => 'aol-settings',
@@ -436,7 +438,7 @@ class Applyonline {
             
             //Application tags
             $labels = array(
-                'name' => _x( 'Application Status', 'apply-online' ), 
+                'name' => _x( 'Application Status', 'ApplyOnline' ), 
                 'singular_name' => 'Status',
                 );
             $args = array(
@@ -474,11 +476,19 @@ class Applyonline {
             add_action( 'aol_form_errors', array($this, 'file_uploader'), 10, 10 ); //Call file uploader when form is being processed.
         }
         
-        function upload_folder($uploads){
-                $dir = apply_filters('aol_upload_folder', 'applyonline');
-                $uploads['path'] = WP_CONTENT_DIR . '/uploads/' . $dir;
-                $uploads['url'] = WP_CONTENT_URL . '/uploads/' . $dir;
-                $uploads['subdir'] = '/' . $dir;
+        function upload_path($uploads){
+                $subdir = apply_filters('aol_upload_folder', 'applyonline');
+                //$default = wp_upload_dir(); $default['basedir'];
+                $aol_upload_path = get_option('aol_upload_path');
+                $uploads['path'] = wp_normalize_path($uploads['basedir'] . '/' . $subdir);
+                $uploads['subdir'] = wp_normalize_path( '/' . $subdir);
+                $uploads['url'] = $uploads['baseurl']. '/' . $subdir;
+
+                if(!empty($aol_upload_path)){
+                    $uploads['basedir'] = $aol_upload_path;
+                    $uploads['path'] = wp_normalize_path($aol_upload_path . '/' . $subdir);
+                }
+                //print_r($uploads); die();
                 return $uploads;
         }
 
@@ -507,19 +517,20 @@ class Applyonline {
                 if(empty($val['name'])) continue;
                 
                 if($max_upload_size < $val['size']){
-                        $errors->add('max_size', sprintf(__( '%s is oversized. Must be under %s MB', 'apply-online' ), $val['name'] , $upload_size));
+                        $errors->add('max_size', sprintf(__( '%s is oversized. Must be under %s MB', 'ApplyOnline' ), $val['name'] , $upload_size));
                 }
 
                 /* Check File Size */
                 $file_type_match = 0;
                 $filetype = wp_check_filetype (  $val['name'] );
                 $file_ext = strtolower($filetype['ext']);
-                if(strstr($file_types, $file_ext) == FALSE) $errors->add('file_type', sprintf(__( 'Invalid file %s. Allowed file types are %s', 'apply-online' ), $val['name'], $file_types));
+                if(strstr($file_types, $file_ext) == FALSE) $errors->add('file_type', sprintf(__( 'Invalid file %s. Allowed file types are %s', 'ApplyOnline' ), $val['name'], $file_types));
                 $errors = apply_filters('aol_before_file_upload_errors', $errors);
                 if(empty($errors->errors)){
                     do_action('aol_before_file_upload', $key, $val, $post);
-                    add_filter('upload_dir', array($this, 'upload_folder')); //Change upload path.
-                    $movefile = wp_handle_upload( $val, $upload_overrides ); 
+                                        
+                    add_filter('upload_dir', array($this, 'upload_path')); //Change upload path.
+                    $movefile = wp_handle_upload( $val, $upload_overrides );
                     if ( $movefile && ! isset( $movefile['error'] ) ) {
                         $uploads[$key] = $movefile;
                         $uploads[$key]['name'] = $val['name'];
@@ -542,7 +553,7 @@ class Applyonline {
             $nonce=$_POST['wp_nonce'];
             if(!wp_verify_nonce($nonce, 'the_best_aol_ad_security_nonce')){
                 header( "Content-Type: application/json" );
-                echo json_encode( array( 'success' => false, 'error' => __( 'Session Expired, please try again', 'apply-online' ) ));
+                echo json_encode( array( 'success' => false, 'error' => __( 'Session Expired, please try again', 'ApplyOnline' ) ));
                 exit;
             }
 
@@ -560,18 +571,18 @@ class Applyonline {
                     if(in_array($app_field['type'], array('separator', 'seprator', 'paragraph'))) continue; //Excludes seprator & paragraph from validation & verification
                     //eMail validation
                     if($app_field['type'] == 'email'){
-                        if(!empty($_POST[$key]) and is_email($_POST[$key])==FALSE) $errors->add('email', str_replace('_',' ', substr($key, 9)). __(' is invalid.', 'apply-online'));
+                        if(!empty($_POST[$key]) and is_email($_POST[$key])==FALSE) $errors->add('email', sprintf(__('%s is invalid.', 'ApplyOnline'), str_replace('_',' ', substr($key, 9))));
                     }
                     //File validation & verification.
                     if($app_field['type'] == 'file'){
-                        if(!isset($_FILES[$key]['name'])) $errors->add('file', str_replace('_',' ', substr($key, 9)).__(' is not a file.', 'apply-online'));
-                        if((int)$app_field['required'] == 1 and empty($_FILES[$key]['name'])) $errors->add('required', str_replace('_',' ', substr($key, 9)).__(' is required.', 'apply-online'));
+                        if(!isset($_FILES[$key]['name'])) $errors->add('file', sprintf(__('%s is not a file.', 'ApplyOnline'), str_replace('_',' ', substr($key, 9))));
+                        if((int)$app_field['required'] == 1 and empty($_FILES[$key]['name'])) $errors->add('required', sprintf(__('%s is required.', 'ApplyOnline'), str_replace('_',' ', substr($key, 9))));
                     }
                     
                     //chek required fields for non File Fields
                     if((int)$app_field['required'] == 1 and $app_field['type'] != 'file'){
                         $_POST[$key] = is_array($_POST[$key]) ? array_map(sanitize_text_field, $_POST[$key]) : sanitize_textarea_field($_POST[$key]);
-                        if(empty($_POST[$key])) $errors->add('required', str_replace('_',' ', substr($key, 9)).__(' is required.', 'apply-online'));
+                        if(empty($_POST[$key])) $errors->add('required', sprintf (__('%s is required.', 'ApplyOnline'), str_replace('_',' ', substr($key, 9))) );
                     }
                 }
             }
@@ -606,6 +617,7 @@ class Applyonline {
             do_action('aol_before_app_save', $_POST);
             $args = apply_filters('aol_insert_app_data', $args, $_POST);
             $pid = wp_insert_post($args);
+            $args['ID'] = $pid;
 
             if($pid>0){
                 foreach($_POST as $key => $val):
@@ -629,7 +641,7 @@ class Applyonline {
                 $divert_page = get_option('aol_thankyou_page');
 
                 empty($divert_page) ? $divert_link = null :  $divert_link = get_page_link($divert_page);
-                $message = __('Form has been submitted successfully. If required, we will get back to you shortly.', 'apply-online');
+                $message = __('Form has been submitted successfully. If required, we will get back to you shortly!', 'ApplyOnline');
                 $response = array( 'success' => true, 'divert' => $divert_link, 'hide_form'=>TRUE , 'message'=>$message );    // generate the response.
             }
 
@@ -660,22 +672,27 @@ class Applyonline {
             }
             $from_email = 'do-not-reply@' . $sitename;
 
-            $subject = "New application for $post->post_title";
-            $headers = array('Content-Type: text/html; charset=UTF-8', "From: ". get_bloginfo('name')." <$from_email>");
+            $subject = sprintf(__('New application for %s'), wp_specialchars_decode($post->post_title));
+            $headers = array('Content-Type: text/html', "From: ". wp_specialchars_decode(get_bloginfo('name'))." <$from_email>");
             $attachments = array();
 
             //@todo need a filter hook to modify content of this email message and to add a from field in the message.
             $message = "<p>Hi,</p>"
-                    . '<p>You have received an application for <b>'.$post->post_title.'</b> on <a href="'.  site_url().'" >'.get_bloginfo('name').'</a>.</p>'
-                    . "<p><b><a href='".$post_url."'>Click Here</a></b> to access this application</p>"
-                    . '<p>----<br />This is an automated response from Apply Online plugin on <a href="'.  site_url().'" >'.site_url().'</a></p>';
+                    . '<p>'
+                    . sprintf(__('You have received an application for %1$s on %2$s website.'), '<b>'.$post->post_title.'</b>', get_bloginfo('name'))
+                    . '</p><p>'
+                    . sprintf(__('%sClick Here%s to access this application.'),'<b><a href="'.$post_url.'">', '</a></b>')
+                    . "</p>"
+                    . '<p>----<br />'
+                    . sprintf(__('This is an automated response from Apply Online plugin on %s'), '<a href="'.site_url().'" >'.get_bloginfo('name').'</a>')
+                    . '</p>';
 
             $message = apply_filters('aol_email_notification', $message, $post_id); //Deprecated.
 
             $aol_email = apply_filters(
                         'aol_email', 
                         array('to' => $emails, 'subject' => $subject, 'message' => nl2br($message), 'headers' => $headers, 'attachments' => $attachments), 
-                        $post_id, 
+                        $post_id,
                         $post, 
                         $uploads
                     );
@@ -747,7 +764,7 @@ class Applyonline_labels{
     
     function translations( $translated_text, $text, $domain ) {
         //Stop if not applyOnlin text domain.
-        if($domain != 'apply-online') return $translated_text;
+        if($domain != 'ApplyOnline') return $translated_text;
         
             switch ( $text ) {
                 
@@ -776,7 +793,7 @@ class Applyonline_labels{
     */
     function gettext_with_context( $translated, $text, $context, $domain ) {
         //Stop if not applyOnlin text domain.
-        if($domain != 'apply-online') return $translated;
+        if($domain != 'ApplyOnline') return $translated;
         
         if($context == 'public' AND $text == 'Apply Online'){
             $translated = get_option('aol_form_heading', 'Apply Online');
