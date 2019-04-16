@@ -9,15 +9,15 @@ $_rem-base: 16px !default;
   @if $top != null {
     top: $top;
   }
-  
+
   @if $right != null {
     right: $right;
   }
-  
+
   @if $bottom != null {
     bottom: $bottom;
   }
-  
+
   @if $left != null {
     left: $left;
   }
