@@ -1,8 +1,7 @@
-<div class="full-bleed">
-<div class="updates-wrapper">
+<section>
 	<div>
 		<?php $posts = get_sub_field('highlights'); if( $posts ): ?>
-		<ul class="updates-cols">
+		<ul>
 		<?php foreach( $posts as $post): // IMPORTANT - variable must be called $post ?>
 			<?php setup_postdata($post); ?>
 			<div>
@@ -15,5 +14,4 @@
 		<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 		<?php endif; ?>
 	</div>
-</div>
-</div>
+</section>
