@@ -33,6 +33,7 @@ class Applyonline_Deactivator {
             unregister_post_type('aol_ad');
             unregister_post_type('aol_application');
             flush_rewrite_rules();
+            remove_role('aol_manager');
 	}
 
 }

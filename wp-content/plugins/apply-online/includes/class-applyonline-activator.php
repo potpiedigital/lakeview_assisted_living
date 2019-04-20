@@ -23,7 +23,7 @@
 class Applyonline_Activator {
     
         static function dependencies(){
-            //Register CPT here for proper Flush Rules.
+            //Register CPT here to proper Flush Rules.
             $slug = get_option_fixed('aol_slug', 'ads');
             register_post_type('aol_ad', array('has_archive' => true, 'rewrite' => array('slug'=>  $slug)));
             
@@ -65,15 +65,17 @@ class Applyonline_Activator {
             wp_insert_term(
                         'Shortlisted',
                         'aol_application_status',
-                        array( 'description'=> __('Shortlisted', 'apply-online') )
+                        array( 'description'=> __('Shortlisted Applications', 'ApplyOnline') )
                     );
             wp_insert_term(
                         'Rejected',
-                        'aol_application_status'
+                        'aol_application_status',
+                        array( 'description'=> __('Rejected Applications', 'ApplyOnline') )
                     );
             wp_insert_term(
                         'Pending',
-                        'aol_application_status'
+                        'aol_application_status',
+                        array( 'description'=> __('Pending Applications', 'ApplyOnline') )
                     );
             
             
@@ -212,23 +214,25 @@ class Applyonline_Activator {
             
             //Insert default fields.
             $fields = array (
-                '_aol_app_Name' => 
+                '_aol_app_name' => 
                 array (
                   'type' => 'text',
                   'options' => '',
+                  'label' => 'Name',
                 ),
-                '_aol_app_Email' => 
+                '_aol_app_email' => 
                 array (
                   'type' => 'email',
                   'options' => '',
+                  'label' => 'E Mail',
                 ),
             );
             if(!get_option('aol_default_fields')) update_option('aol_default_fields', $fields);
             if(!get_option('aol_recipients_emails')) update_option('aol_recipients_emails', get_bloginfo('admin_email'));
             if(!get_option('aol_allowed_file_types')) update_option('aol_allowed_file_types', 'jpg,jpeg,png,doc,docx,pdf,rtf,odt,txt');
             if(!get_option('aol_slug')) update_option('aol_slug', 'ads');
-            if(!get_option('aol_application_message')) update_option('aol_application_message', 'Form has been submitted successfully. If required, we will get back to you shortly!');
-            if(!get_option('aol_required_fields_notice')) update_option('aol_required_fields_notice', 'Fields with (*)  are compulsory.');
+            if(!get_option('aol_application_message')) update_option('aol_application_message', __('Form has been submitted successfully. If required, we will get back to you shortly!', 'ApplyOnline'));
+            if(!get_option('aol_required_fields_notice')) update_option('aol_required_fields_notice', __('Fields with (*)  are compulsory.', 'ApplyOnline'));
             if(!get_option('aol_app_statuses')) update_option('aol_app_statuses', array('pending', 'rejected', 'shortlisted'));
             if(!get_option('aol_show_filter')) update_option('aol_show_filter', 0);
             if(!get_option('aol_ad_filters')) update_option('aol_ad_filters', array('category', 'type', 'location'));
@@ -270,6 +274,7 @@ class Applyonline_Activator {
                 'edit_ad_terms'         => TRUE,
                 'delete_ad_terms'       => TRUE,
                 'assign_ad_terms'          => TRUE,
+                'upload_files'          => TRUE
                 );
             
             $role = get_role('administrator');
@@ -277,8 +282,29 @@ class Applyonline_Activator {
                 $role->add_cap( $cap, $val ); 
             }
 
+            //Prepare AOL Manager Role
+            $caps = array_merge($caps, array('delete_others_ads' =>FALSE,'edit_others_ads' =>FALSE));
             remove_role('aol_manager');
-            add_role('aol_manager', 'AOL Manager', $caps);
+            $manager = add_role('aol_manager', __('AOL Manager', 'ApplyOnline'), $caps);
+            
+            /*
+             * Adding Jury Role. 
+             */
+            $caps = array(
+                'edit_application'         =>TRUE,
+                'read_application'         =>TRUE,
+                'delete_application'     =>FALSE,
+                'edit_applications'         =>TRUE,
+                'edit_others_applications'  =>TRUE,
+                'edit_private_applications' =>TRUE,
+                'edit_published_applications'=>TRUE,
+                'read_private_applications' =>TRUE,
+                'read'                      =>TRUE,
+                'view_admin_dashboard'      => TRUE, //WooCommerce fix, the alternate read capability.
+                );
+            
+            remove_role('aol_jury');
+            add_role('aol_jury', 'AOL Jury', $caps);            
         }
         
         /**
@@ -286,7 +312,7 @@ class Applyonline_Activator {
          * 
          * The Bug: Application form fields(Post Metas) were serialized twice before save. 
          * 
-         * The Fix: Check each app form field and converts it from dual serilized to single serialized value.
+         * The Fix: Check each app form field and converts it from dual serialized to single serialized value.
          * 
          * @since 1.6
          * 

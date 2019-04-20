@@ -37,14 +37,14 @@
                 changeYear: true,
             });
             
-         $( ".aol_app_form" ).submit(function() {
+         $( ".aol_app_form" ).submit(function(){
             var datastring = new FormData(document.getElementById("aol_app_form"));
-             $.ajax({
+            $.ajax({
                     url: aol_public.ajaxurl,
                     type: 'POST',
                     dataType: 'json',
                     data: datastring,
-                    async: false,
+                    //async: false,
                     cache: false,
                     contentType: false,
                     processData: false,

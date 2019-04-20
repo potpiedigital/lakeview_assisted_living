@@ -3,8 +3,8 @@ Contributors: farhan.noor
 Donate link: https://wpreloaded.com/product/email-application/?ref=wporg
 Tags: job board, job manager, career page, form builder, contact form, job listing, application, cv, courses, class, admission form, career,
 Requires at least: 4.8
-Tested up to: 5.0
-Stable tag: 1.9.91
+Tested up to: 5.1
+Stable tag: 1.9.92
 License: GPLv2 or later
 
 Powerful & intuitive plugin to post ads and start receiving applications online.
@@ -16,16 +16,15 @@ Focused on stability and simplicity, with this plugin you can create a company's
 = Powerful Features =
 * Super simple integration, just install & add a menu link to *yourwebsite.com/ads*.
 * Beautifully integrates into your existing website without worrying for design.
-* Create as many ad types as you wish e.g. career or job Ads, classes & courses ads. 
+* Create as many ad types as you wish e.g. **Career, Classes, Registrations** etc. 
 * Form builder with all HTML form fields to create a stunning application form.
 * Ads listing page with excerpt of each ad.
 * Ads filtration option on front-end to narrow down ads listing.
 * Ad detail page with description, features and application form.
-* Standard Wordpress interface to add, categorize and manage ads.
-* Different types of ads e.g. yourwebsite.com/careers , yourwebsite.com/admissions, yourwebsite.com/events.
-* Packed with wordpress user role *AOL Manager* for people who handle applications.
+* Standard WordPress interface to add, categorize and manage ads.
+* Packed with WordPress user role *AOL Manager* for people who handle applications.
 * Each Application Manager can write his own comments for the received applications to evaluate the candidate.
-* Get email notifications when an application is received.
+* Build a list of recipients to get email notifications when an application is received.
 * Multiple file attachment fields.
 * Hooks and functions for advancements and customization.
 * Clear and well formed documentation for developers and non-developers.
@@ -37,7 +36,7 @@ Focused on stability and simplicity, with this plugin you can create a company's
 * **Application(s) Exporter:** Export individual application as PDF & all applications of an ad as CSV.
 * **Apply Online Captcha:** An effective security solution that adds captcha challenge at the bottom of the application form to keep bots apart.
 * **Ads Filters:** Custom filters for your ads archive page.
-* **Application Statuses:** Custom Statuses for the applications you have received. 
+* **Application Statuses:** Custom Statuses for the applications you have received.
 
 For demo, please check [AOL Demo](http://wpreloaded.com/plugins/apply-online "Apply Online plugin"). Your suggestions and error reports can really help to improve this plugin.
 
@@ -81,7 +80,7 @@ For demo, please check [AOL Demo](http://wpreloaded.com/plugins/apply-online "Ap
 = How to create an ad? =
 In your WordPress admin panel, go to "All Ads" menu and add create an ad here.
 
-= How to show ad listings on the front-end? =
+= How to show ads on the front-end? =
 Add [aol] shortcode in an existing page or add a new page and write shortcode anywhere in the page editor. Now click on VIEW to see all of your ads on front-end.
 
 = Can I show selected ads on front-end? =
@@ -90,6 +89,9 @@ Yes, use shortcode with "ads" attribute. Ad ids must be separated with commas i.
 = Can I show ads without excerpt/summary? =
 Yes, use shortcode with "excerpt" attribute i.e. [aol excerpt="no"]
 
+= Can I list ads without any fancy styling? =
+Yes, use shortcode with "style" attribute to list ads with bullets i.e. [aol display="list"]. To generate an ordered list add another attribute "list-style" i.e. [aol display="list" list-style="ol"].
+
 = What attributes can i use in the shortcode? =
 Default shortcode with all attributes is [aol ads="1,2,3" excerpt="no" type="ad"]. Use only required attributes.
 
@@ -97,6 +99,12 @@ Default shortcode with all attributes is [aol ads="1,2,3" excerpt="no" type="ad"
 Yes, please check plugin reference at [WP Reloaded](http://wpreloaded.com/plugins/apply-online/reference)
 
 == Changelog ==
+= 1.9.92 =
+* New: Help text for form fields.
+* Fixed: Thumbnail margin issue.
+* Fixed: Lower case alphabets for labels on Application page in admin panel.
+* Fixed: &amp; for email alerts.
+
 = 1.9.91 =
 * Fixed: Uploads folder path.
 * Fixed: Unnecessary CSS links in admin panel.

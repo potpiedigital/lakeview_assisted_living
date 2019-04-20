@@ -1,3 +1,70 @@
 body {
   background-color: $white;
 }
+
+.info-background {
+  height: 5em;
+  width: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+// ********* HOMEPAGE ***********
+.copy-block {
+  width: 60%;
+  max-width: 1200px;
+  margin: 2em auto;
+  text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  p {
+    text-align: left;
+    padding-top: 1em;
+    line-height: 1.25;
+  }
+
+}
+
+.image-container {
+  position: relative;
+
+  .image-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-transform: uppercase;
+    width: 50%;
+    padding-right: 5em;
+    line-height: 1.25;
+  }
+
+  .top-image {
+    height: 300px;
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .faded-left-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 250px;
+    width: auto;
+    opacity: .65;
+    padding: 0 5em 3em 0;
+  }
+
+  .center-image {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7em 0 0 4em;
+  }
+}
