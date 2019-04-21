@@ -1,1 +1,18 @@
 @import "superior";
+
+.info-cols {
+  @include cols($justify: center);
+
+  .info-col {
+    @include make-flex(3.9);
+    margin: .5em .25em;
+  }
+
+  @media screen and (max-width: 1015px) {
+    @include cols($dir: column, $align-items: center);
+
+    .info-col {
+      @include update-flex(11);
+    }
+  }
+}
