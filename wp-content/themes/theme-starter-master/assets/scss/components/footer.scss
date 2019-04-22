@@ -1,0 +1,84 @@
+footer {
+  background-color: $blue;
+}
+
+.footer-nav {
+  margin-top: 2em;
+  padding-top: 2em;
+
+  ul {
+
+    li {
+
+      a {
+        color: $white;
+      }
+    }
+  }
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: 1em auto;
+  text-align: center;
+
+  a {
+
+    img {
+      height: 8em;
+      width: auto;
+    }
+  }
+
+  div {
+    margin-top: 1em;
+
+    a {
+      padding: 0 .25em;
+
+      img {
+        height: 2em;
+        width: auto;
+      }
+    }
+  }
+
+  .personal-contact {
+
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+
+    div {
+      margin-top: .5em;
+    }
+  }
+}
+
+hr {
+  color: $white;
+  width: 98%;
+  margin: 2em auto;
+  border: 1px solid $white;
+}
+
+.sub-footer {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 2em;
+  text-align: center;
+
+  P {
+    color: $white;
+    padding-bottom: .5em;
+
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}

@@ -121,7 +121,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     transform-origin: 50% 50%;
-    transition: transform 0.5s ease;
+    transition: transform .5s ease;
   }
 
   &::before {
@@ -132,11 +132,11 @@ body {
     bottom: 0;
     left: 0;
     background-image: linear-gradient(rgb(47, 48, 50));
-    opacity: 0.5;
+    opacity: .5;
     width: 101%;
     height: 100%;
     z-index: 2;
-    transition: opacity 0.5s ease;
+    transition: opacity .5s ease;
   }
 
   h2 {
