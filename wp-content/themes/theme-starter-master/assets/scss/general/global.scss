@@ -170,14 +170,16 @@ body {
   }
 
   &::before {
-    content: '"';
-    font-family: 'Crimson Text', serif;
-    font-size: 160px;
-    color: $blue;
-    line-height: 1.444;
+    content: url('../../img/quote_mark.svg');
+    // font-family: 'Crimson Text', serif;
+    // font-size: 160px;
+    // color: $blue;
+    // line-height: 1.444;
     position: absolute;
-    top: -125%;
+    top: -60%;
     left: 30%;
+    height: 5em;
+    width: auto;
   }
 
 }
@@ -220,7 +222,7 @@ body {
     padding: 0;
   }
 
-  &:after {
+  &::after {
     content: "";
     position: absolute;
     // top: 0;
@@ -284,5 +286,39 @@ body {
       text-align: center;
       margin: 0 auto;
     }
+  }
+}
+
+.founder {
+  width: 80%;
+  margin: 2em auto;
+
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  img {
+    height: 20em;
+    width: auto;
+  }
+
+}
+
+.founder-info {
+
+  p {
+    padding: 1em 0;
+    line-height: 1.25;
+  }
+}
+
+.location-info {
+  width: 80%;
+  border-top: 2px solid $blue;
+  padding-top: 2em;
+
+  address {
+    padding: 1em 0;
   }
 }

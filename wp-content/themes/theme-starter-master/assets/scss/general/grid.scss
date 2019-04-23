@@ -1,5 +1,20 @@
 @import "superior";
 
+.main-navigation {
+  @include cols($justify: center, $align-items: center);
+  margin: 0;
+
+  .logo {
+    @include make-flex(2);
+    padding: .5em;
+  }
+
+  .main-nav {
+    @include make-flex(9);
+    padding: 0;
+  }
+}
+
 .info-cols {
   @include cols($justify: center);
   margin: 0;
@@ -58,4 +73,28 @@
       padding-bottom: 0;
     }
   }
+}
+
+.founder-content {
+  @include cols($justify: center, $align-items: center);
+  margin-top: 2em;
+
+  .founder-info {
+    @include make-flex(6);
+  }
+
+  img {
+    @include make-flex(4);
+  }
+}
+
+.location-info {
+  @include cols($justify: space-between);
+  margin: 2em auto 0;
+
+  h4,
+  div {
+    @include make-flex(5);
+  }
+
 }
