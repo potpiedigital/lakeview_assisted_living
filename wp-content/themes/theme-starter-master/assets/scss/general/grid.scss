@@ -1,1 +1,111 @@
 @import "superior";
+
+.main-navigation {
+  @include cols($justify: center, $align-items: center);
+  margin: 0;
+
+  .logo {
+    @include make-flex(2);
+    padding: .5em;
+  }
+
+  .main-nav {
+    @include make-flex(9);
+    padding: 0;
+  }
+}
+
+.info-cols {
+  @include cols($justify: center);
+  margin: 0;
+
+  .info-col {
+    @include make-flex(3.9);
+    margin: .5em .25em;
+  }
+
+  @media screen and (max-width: 1015px) {
+    @include cols($dir: column, $align-items: center);
+
+    .info-col {
+      @include update-flex(11);
+    }
+  }
+}
+
+.updates-cols {
+  @include cols($justify: center);
+  text-align: left;
+  margin: 0 auto;
+  padding: 0;
+
+  .updates-col {
+    @include make-flex(4);
+    padding: 30px;
+  }
+
+  @media screen and (max-width: 1054px) {
+
+    .updates-col {
+      @include update-flex(5);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+
+    .updates-col {
+      @include update-flex(6);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    @include cols($dir: column, $align-items: center);
+
+    .updates-col {
+      @include update-flex(10);
+      padding: 30px 0;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+
+    .updates-col:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.founder-content {
+  @include cols($justify: center, $align-items: center);
+  margin-top: 2em;
+
+  .founder-info {
+    @include make-flex(6);
+  }
+
+  img {
+    @include make-flex(4);
+  }
+}
+
+.location-info {
+  @include cols($justify: space-between);
+  margin: 2em auto 0;
+
+  h4,
+  div {
+    @include make-flex(5);
+  }
+
+}
+
+.service-section {
+  @include cols($justify: center);
+  margin: 0;
+
+  .service-group {
+    @include make-flex(3);
+    padding: 0;
+    margin: 0;
+  }
+}
