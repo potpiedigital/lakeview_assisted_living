@@ -4,22 +4,22 @@
 
     This file can get a bit unruly depending on how much you are customizing it.
     I like to do the standard wordpress functions here - wordpress nav menus, sidebars, stylesheets, scripts and utlity classes
-    If you find this file getting convoluted or hard to read please consider breaking 
-    it up using an inc folder. See below for some examples. 
+    If you find this file getting convoluted or hard to read please consider breaking
+    it up using an inc folder. See below for some examples.
 
     include 'inc-functions/functions-remove.php'; --> This enables you to customize and hide things on the wordpress admin side.
     include 'inc-functions/functions-general.php'; --> General handles any content modifications like Flexible Content, Format stripping, etc.
     include 'inc-functions/functions-header.php'; --> Used to be used for minification purposes and header cleanup. I believe we aren't on that path anymore.
-    include 'inc-functions/functions-footer.php'; --> Any addition scripts that need to be included in the footer. Believe we can do this using wp_enqueue_script instead. 
-    include 'inc-functions/functions-project.php'; --> Any specific non-universal project functions could go here. 
-    include 'inc-functions/functions-shortcodes.php'; --> Add shortcodes in here. 
-    include 'inc-functions/functions-post-types-taxonomies.php'; --> Register your custom post types and taxonomies here. 
+    include 'inc-functions/functions-footer.php'; --> Any addition scripts that need to be included in the footer. Believe we can do this using wp_enqueue_script instead.
+    include 'inc-functions/functions-project.php'; --> Any specific non-universal project functions could go here.
+    include 'inc-functions/functions-shortcodes.php'; --> Add shortcodes in here.
+    include 'inc-functions/functions-post-types-taxonomies.php'; --> Register your custom post types and taxonomies here.
 
 */
 
 //Add the inc functions like below
 
-// Enables us to customize the login side of wordpress. See the admin folder for the style sheet and images. 
+// Enables us to customize the login side of wordpress. See the admin folder for the style sheet and images.
 include 'inc-functions/functions-admin.php';
 include 'inc-functions/functions-acf.php';
 include 'inc-functions/functions-shortcodes.php';
@@ -67,7 +67,7 @@ like this:
 */
 
 function startertemplate_all_scriptsandstyles() {
-  
+
   // Loads jQuery from the Google CDN, loading jquery this way ensures it won't be included twice with plugins that include it
 
   if (!is_admin()) {
@@ -83,7 +83,9 @@ function startertemplate_all_scriptsandstyles() {
   //register and enqueue main site javascript - already minified using gulp
   wp_register_script ('app', get_stylesheet_directory_uri() . '/dist/js/app.min.js', null,null,true);
   wp_enqueue_script( 'app' );
-  
+
+  wp_enqueue_script( 'swiper-js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js', array(), false, true );
+
 }
 add_action( 'wp_enqueue_scripts', 'startertemplate_all_scriptsandstyles' );
 
@@ -120,7 +122,7 @@ function remove_max_srcset_image_width( $max_width ) {
     return false;
 }
 
-/* 
+/*
 
 //Register wigetized sidebars, changing the default output from lists to divs
 

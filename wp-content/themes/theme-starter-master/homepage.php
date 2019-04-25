@@ -13,7 +13,7 @@ Template Name: homepage
 		<?php flexible_content('homepage_blocks');
 		?>
 	</div>
-	<?php endwhile; endif; ?>
+  <?php endwhile; endif; ?>
 </main>
 
 <?php get_footer(); ?>
