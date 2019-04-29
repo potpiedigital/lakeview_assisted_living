@@ -1,0 +1,42 @@
+.full-image {
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.admin {
+  margin: 4em auto;
+
+  img {
+    width: auto;
+    height: auto;
+  }
+
+  div {
+    h3 {
+      text-transform: uppercase;
+      padding-bottom: 1em;
+    }
+
+    p {
+      padding: .5em 0;
+    }
+  }
+}
+
+.our-family {
+  text-align: center;
+}
+
+.family-image {
+  height: 347px;
+  width: 100%;
+
+  img {
+    // height: 90%;
+    // width: auto;
+    object-fit: contain;
+  }
+}
