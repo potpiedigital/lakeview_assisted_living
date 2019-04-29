@@ -109,3 +109,50 @@
     margin: 0;
   }
 }
+
+.highlights-info {
+  @include cols($justify: space-between);
+  padding: 0;
+  margin: 0;
+
+  .thumbnail-container {
+    @include make-flex(3);
+  }
+
+  .post-info {
+    @include make-flex(8);
+  }
+}
+
+.admin {
+  @include cols($justify: center);
+  padding: 0;
+  margin: 0;
+
+  img {
+    @include make-flex(3);
+  }
+
+  div {
+    @include make-flex(6);
+  }
+}
+
+.family-posts {
+  @include cols($justify: space-between);
+  margin: 0;
+  padding: 0;
+
+  div {
+    @include make-flex(3);
+    margin: .5em .25em;
+  }
+
+  @media screen and (max-width: 1015px) {
+    @include cols($dir: column, $align-items: center);
+
+    div {
+      @include update-flex(11);
+    }
+  }
+}
