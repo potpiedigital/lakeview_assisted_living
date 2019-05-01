@@ -70,6 +70,8 @@ function startertemplate_all_scriptsandstyles() {
 
   // Loads jQuery from the Google CDN, loading jquery this way ensures it won't be included twice with plugins that include it
 
+
+
   if (!is_admin()) {
     wp_deregister_script( 'jquery' );
     wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js", null,null,true);
@@ -80,11 +82,12 @@ function startertemplate_all_scriptsandstyles() {
   wp_register_style( 'main', get_stylesheet_directory_uri() . '/dist/css/main.min.css', null, null, 'screen');
   wp_enqueue_style( 'main' );
 
+  wp_enqueue_script( 'swiper-js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js', array(), false, true );
+
+
   //register and enqueue main site javascript - already minified using gulp
   wp_register_script ('app', get_stylesheet_directory_uri() . '/dist/js/app.min.js', null,null,true);
   wp_enqueue_script( 'app' );
-
-  wp_enqueue_script( 'swiper-js', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js', array(), false, true );
 
 }
 add_action( 'wp_enqueue_scripts', 'startertemplate_all_scriptsandstyles' );

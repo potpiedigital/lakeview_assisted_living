@@ -13,6 +13,7 @@
   "author": "Potpie Digital <mark@potpie.digital>",
   "homepage": "https://potpie.digital",
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
