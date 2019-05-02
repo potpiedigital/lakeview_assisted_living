@@ -139,13 +139,13 @@
 }
 
 .family-posts {
-  @include cols($justify: space-between);
-  margin: 0;
+  @include cols($justify: center);
+  margin: 0 auto;
   padding: 0;
+  width: 90%;
 
-  div {
-    @include make-flex(3);
-    margin: .5em .25em;
+  .employee-info {
+    @include make-flex(4);
   }
 
   @media screen and (max-width: 1015px) {

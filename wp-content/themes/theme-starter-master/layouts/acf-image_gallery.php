@@ -5,19 +5,18 @@
         // display a sub field value
 	?>
 	<div class="swiper-container">
-  <div class="swiper-wrapper">
-		<?php // loop through the rows of data
+    <div class="swiper-wrapper">
+		  <?php // loop through the rows of data
 			while ( have_rows('images') ) : the_row();
-    ?>
+      ?>
       <img class="swiper-slide" src="<?php the_sub_field('image') ?>" />
-    <?php endwhile; ?>
+      <?php endwhile; ?>
     </div>
-  </div>
-  <div class="swiper-pagination"></div>
-
-    <!-- If we need navigation buttons -->
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
+  </div>
+
+  <div class="swiper-pagination"></div>
 	<?php
 		else :
     	// no rows found

@@ -28,15 +28,30 @@
 
 .our-family {
   text-align: center;
-}
 
-.family-image {
-  height: 347px;
-  width: 100%;
+  .employee-info {
+    padding-bottom: 2em;
 
-  img {
-    // height: 90%;
-    // width: auto;
-    object-fit: contain;
+    .family-image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      margin: 10px;
+      position: relative;
+
+      img {
+        position: absolute;
+        margin: auto;
+        min-height: 100%;
+        min-width: 100%;
+
+        /* For the following settings we set 100%, but it can be higher if needed
+        See the answer's update */
+        left: -100%;
+        right: -100%;
+        top: -100%;
+        bottom: -100%;
+      }
+    }
   }
 }

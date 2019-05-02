@@ -5,8 +5,8 @@
 		<ul class="family-posts">
 		<?php foreach( $posts as $post): // IMPORTANT - variable must be called $post ?>
 			<?php setup_postdata($post); ?>
-			<div>
-			<div class="family-image"><?php the_post_thumbnail(); ?></div>
+			<div class="employee-info">
+			  <div class="family-image"><?php the_post_thumbnail(); ?></div>
 				<h4><?php the_title(); ?></h4>
 				<p><?php the_excerpt(); ?></p>
 			</div>
