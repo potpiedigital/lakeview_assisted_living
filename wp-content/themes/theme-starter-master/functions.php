@@ -120,6 +120,13 @@ function get_the_custom_excerpt($length){
   return substr( get_the_excerpt(), 0, strrpos( substr( get_the_excerpt(), 0, $length), ' ' ) ).'...';
 }
 
+// Replaces the excerpt "Read More" text by a link
+function new_excerpt_more($more) {
+  global $post;
+return '<a class="moretag" href="'. get_permalink($post->ID) . '"> ... More</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 add_filter( 'max_srcset_image_width', 'remove_max_srcset_image_width' );
 function remove_max_srcset_image_width( $max_width ) {
     return false;

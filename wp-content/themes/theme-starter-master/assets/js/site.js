@@ -21,6 +21,8 @@ $(document).ready(function() {
     loop: true,
     slidesPerView: 1,
     centeredSlides: true,
+    speed: 600,
+    parallax: true,
 
     // If we need pagination
     pagination: {
