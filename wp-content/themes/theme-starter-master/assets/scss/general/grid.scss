@@ -172,14 +172,14 @@
   }
 }
 
-// .single-care {
-//   @include cols($justify: space-between);
+.single-care {
+  @include cols($justify: space-between);
 
-//   .overview {
-//     @include make-flex(6);
-//   }
+  .overview {
+    @include make-flex(5);
+  }
 
-//   ul {
-//     @include make-flex(6);
-//   }
-// }
+  ul {
+    @include make-flex(6);
+  }
+}
