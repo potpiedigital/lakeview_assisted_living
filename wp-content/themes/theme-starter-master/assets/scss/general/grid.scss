@@ -156,3 +156,30 @@
     }
   }
 }
+
+.contacting {
+  @include cols($justify: space-between);
+
+
+  .wpcf7 {
+    @include make-flex(6);
+    margin: 0 .5em;
+  }
+
+  ul {
+    @include make-flex(4);
+    margin: 0 .5em;
+  }
+}
+
+// .single-care {
+//   @include cols($justify: space-between);
+
+//   .overview {
+//     @include make-flex(6);
+//   }
+
+//   ul {
+//     @include make-flex(6);
+//   }
+// }
