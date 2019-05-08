@@ -159,27 +159,29 @@ body {
 }
 
 .quote {
-  position: relative;
 
   blockquote {
     width: 30%;
     text-align: left;
     margin: 0 auto 5em;
+    position: relative;
+
+    &::before {
+      content: "\201C";
+      font-family: 'Crimson Text', serif;
+      font-size: 260px;
+      color: $blue;
+      line-height: 1.444;
+      position: absolute;
+      top: -130px;
+      left: -80px;
+      height: 5em;
+      width: auto;
+    }
 
   }
 
-  &::before {
-    content: url('../../img/quote_mark.svg');
-    // font-family: 'Crimson Text', serif;
-    // font-size: 160px;
-    // color: $blue;
-    // line-height: 1.444;
-    position: absolute;
-    top: -60%;
-    left: 30%;
-    height: 5em;
-    width: auto;
-  }
+
 
 }
 
