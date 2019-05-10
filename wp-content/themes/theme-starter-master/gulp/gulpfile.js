@@ -83,7 +83,7 @@ gulp.task("js-lint", function() {
     .src(scripts)
     .pipe(
       eslint({
-        configFile: ".eslintrc",
+        configFile: ".eslintrc.js",
         fix: true
       })
     )

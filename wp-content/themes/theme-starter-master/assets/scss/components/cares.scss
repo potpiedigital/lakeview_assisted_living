@@ -1,0 +1,24 @@
+.service-types {
+  width: 90%;
+  margin: 0 auto;
+
+  .single-care {
+    width: 100%;
+    margin: 2em 0;
+    padding-bottom: 2em;
+    border-bottom: 2px solid $blue;
+
+    ul {
+      list-style-type: circle;
+
+      li {
+        padding: .25em 0;
+      }
+    }
+  }
+
+}
+
+.single-care:last-child {
+  border-bottom: none;
+}

@@ -109,3 +109,77 @@
     margin: 0;
   }
 }
+
+.highlights-info {
+  @include cols($justify: space-between);
+  padding: 0;
+  margin: 0;
+
+  .thumbnail-container {
+    @include make-flex(3);
+  }
+
+  .post-info {
+    @include make-flex(8);
+  }
+}
+
+.admin {
+  @include cols($justify: center);
+  padding: 0;
+  margin: 0;
+
+  img {
+    @include make-flex(3);
+  }
+
+  div {
+    @include make-flex(6);
+  }
+}
+
+.family-posts {
+  @include cols($justify: center);
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+
+  .employee-info {
+    @include make-flex(4);
+  }
+
+  @media screen and (max-width: 1015px) {
+    @include cols($dir: column, $align-items: center);
+
+    div {
+      @include update-flex(11);
+    }
+  }
+}
+
+.contacting {
+  @include cols($justify: space-between);
+
+
+  .wpcf7 {
+    @include make-flex(6);
+    margin: 0 .5em;
+  }
+
+  ul {
+    @include make-flex(4);
+    margin: 0 .5em;
+  }
+}
+
+.single-care {
+  @include cols($justify: space-between);
+
+  .overview {
+    @include make-flex(5);
+  }
+
+  ul {
+    @include make-flex(6);
+  }
+}
