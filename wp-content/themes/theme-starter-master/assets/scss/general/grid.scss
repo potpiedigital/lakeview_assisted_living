@@ -26,6 +26,7 @@
 
   @media screen and (max-width: 1015px) {
     @include cols($dir: column, $align-items: center);
+    margin: 0;
 
     .info-col {
       @include update-flex(11);
@@ -60,6 +61,7 @@
 
   @media screen and (max-width: 600px) {
     @include cols($dir: column, $align-items: center);
+    margin: 0;
 
     .updates-col {
       @include update-flex(10);
@@ -76,15 +78,28 @@
 }
 
 .founder-content {
-  @include cols($justify: center, $align-items: center);
+  @include cols($justify: space-between, $align-items: center);
   margin-top: 2em;
+
+  .founder-img {
+    @include make-flex(4);
+  }
 
   .founder-info {
     @include make-flex(6);
   }
 
-  img {
-    @include make-flex(4);
+  @media screen and (max-width: 800px) {
+    @include cols($dir: column, $justify: center, $align-items: center);
+
+    .founder-info {
+      @include update-flex(10);
+    }
+
+    .founder-img {
+      @include update-flex(10);
+    }
+
   }
 }
 

@@ -7,9 +7,8 @@
 	<div class="swiper-container">
     <div class="swiper-wrapper">
 		  <?php // loop through the rows of data
-			while ( have_rows('images') ) : the_row();
-      ?>
-      <img class="swiper-slide" src="<?php the_sub_field('image') ?>" />
+			while ( have_rows('images') ) : the_row(); ?>
+      <div class="swiper-slide" style="background-image: url(<?php the_sub_field('image') ?>"></div>
       <?php endwhile; ?>
     </div>
     <div class="swiper-button-prev"></div>

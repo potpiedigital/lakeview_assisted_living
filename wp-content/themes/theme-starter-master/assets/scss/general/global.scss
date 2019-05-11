@@ -10,7 +10,6 @@ body {
   background-position: center;
 }
 
-
 // ********* HOMEPAGE ***********
 .copy-block {
   width: 60%;
@@ -26,12 +25,12 @@ body {
     text-align: left;
     padding-top: 1em;
   }
-
 }
 
 .main-image-container {
   position: relative;
   width: 80%;
+  max-width: 1800px;
   height: 35em;
   margin: 0 auto;
 
@@ -58,7 +57,7 @@ body {
       position: absolute;
       top: 0;
       left: 0;
-      width: 400px;
+      width: 32vw;
       height: auto;
     }
 
@@ -67,7 +66,7 @@ body {
       z-index: 2;
       top: 35%;
       left: 30%;
-      width: 350px;
+      width: 28vw;
       height: auto;
     }
 
@@ -75,18 +74,53 @@ body {
       position: absolute;
       top: 30%;
       left: 60%;
-      width: 350px;
+      width: 28vw;
       height: auto;
-      opacity: .65;
+      opacity: 0.65;
     }
 
     .faded-left-image {
       position: absolute;
       top: 60%;
       left: 5%;
-      width: 350px;
+      width: 28vw;
       height: auto;
-      opacity: .65;
+      opacity: 0.65;
+    }
+  }
+
+  @media screen and (max-width: $portrait) {
+    width: 95%;
+
+    .inner-image-container {
+
+      .image-info {
+        width: 60%;
+        left: 35%;
+      }
+
+      .faded-left-image {
+        top: 40%;
+      }
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+    height: 20em;
+
+    .inner-image-container {
+
+      .image-info {
+        width: 90%;
+        left: 5%;
+        top: 45%;
+      }
+
+      .faded-left-image,
+      .faded-right-image {
+        display: none;
+      }
     }
   }
 }
@@ -120,7 +154,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     transform-origin: 50% 50%;
-    transition: transform .5s ease;
+    transition: transform 0.5s ease;
   }
 
   &::before {
@@ -131,11 +165,11 @@ body {
     bottom: 0;
     left: 0;
     background-image: linear-gradient(rgb(47, 48, 50));
-    opacity: .5;
+    opacity: 0.5;
     width: 101%;
     height: 100%;
     z-index: 2;
-    transition: opacity .5s ease;
+    transition: opacity 0.5s ease;
   }
 
   h2 {
@@ -147,7 +181,6 @@ body {
   }
 
   &:hover {
-
     .info-background {
       transform: scale(1.15);
     }
@@ -159,7 +192,6 @@ body {
 }
 
 .quote {
-
   blockquote {
     width: 30%;
     text-align: left;
@@ -168,7 +200,7 @@ body {
 
     &::before {
       content: "\201C";
-      font-family: 'Crimson Text', serif;
+      font-family: "Crimson Text", serif;
       font-size: 260px;
       color: $blue;
       line-height: 1.444;
@@ -178,11 +210,7 @@ body {
       height: 5em;
       width: auto;
     }
-
   }
-
-
-
 }
 
 .ribbon {
@@ -199,29 +227,22 @@ body {
   }
 }
 
-// .swiper-container {
-//   width: 100%;
-//   height: 100%;
-// }
+.swiper-slide {
+  height: 45vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-// .swiper-button-next {
-//   right: 30px;
-// }
+.swiper-pagination-bullets {
+  position: inherit;
+  padding-top: 1em;
 
-// .swiper-button-prev {
-//   left: 30px;
-// }
-
-// .swiper-pagination {
-//   margin: 1em auto;
-//   width: 100%;
-
-//   .swiper-pagination-bullet {
-//     width: 12px;
-//     height: 12px;
-//     margin: 0 .25em;
-//   }
-// }
+  .swiper-pagination-bullet {
+    padding: 0.25em;
+    margin: 0 0.15em;
+  }
+}
 
 .updates-wrapper {
   position: relative;
@@ -239,7 +260,6 @@ body {
   &::after {
     content: "";
     position: absolute;
-    // top: 0;
     right: 0;
     bottom: 0;
     left: 0;
@@ -264,11 +284,9 @@ body {
   @media screen and (max-width: 600px) {
     padding-bottom: 0;
   }
-
 }
 
 .updates {
-
   .thumbnail-container {
     width: 100%;
     height: 16em;
@@ -278,9 +296,7 @@ body {
       width: 100%;
       height: auto;
     }
-
   }
-
 
   h4 {
     font-weight: 500;
@@ -311,17 +327,22 @@ body {
     text-transform: uppercase;
   }
 
-  img {
-    height: 20em;
-    width: auto;
+  .founder-img {
+    img {
+      height: 20em;
+      width: auto;
+    }
   }
-
 }
 
 .founder-info {
-
   p {
     padding: 1em 0;
+  }
+
+  @media screen and (max-width: 800px) {
+    text-align: center;
+    margin-top: 1em;
   }
 }
 
