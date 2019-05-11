@@ -25,6 +25,30 @@ body {
     text-align: left;
     padding-top: 1em;
   }
+
+  @media screen and (max-width: $landscape) {
+    width: 80%;
+
+    p {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: $portrait) {
+
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    width: 95%;
+
+    p {
+      width: 90%;
+    }
+  }
 }
 
 .main-image-container {
@@ -91,6 +115,7 @@ body {
 
   @media screen and (max-width: $portrait) {
     width: 95%;
+    height: 30em;
 
     .inner-image-container {
 
@@ -101,6 +126,15 @@ body {
 
       .faded-left-image {
         top: 40%;
+      }
+
+      .faded-right-image {
+        top: 40%;
+        left: 55%;
+      }
+
+      .center-image {
+        top: 45%;
       }
     }
   }
@@ -114,16 +148,49 @@ body {
       .image-info {
         width: 90%;
         left: 5%;
-        top: 45%;
+        top: 70%;
+
+        h4 {
+          font-size: 1em;
+        }
       }
 
       .faded-left-image,
       .faded-right-image {
         display: none;
       }
+
+      .center-image {
+        top: 10%;
+        left: 55%;
+      }
+
+      .top-image {
+        left: 10%;
+      }
+    }
+  }
+
+  @media screen and (max-width: $mobile-sm) {
+    .inner-image-container {
+
+      .image-info {
+        top: 65%;
+      }
+
+      .top-image {
+        width: 50vw;
+      }
+
+      .center-image {
+        width: 40vw;
+      }
     }
   }
 }
+
+
+
 
 .info-section {
   margin: 5em auto;
@@ -210,6 +277,10 @@ body {
       height: 5em;
       width: auto;
     }
+
+    @media screen and (max-width: $mobile) {
+      width: 50%;
+    }
   }
 }
 
@@ -224,6 +295,19 @@ body {
 
   p {
     padding: 1em 0 1.5em 0;
+  }
+
+  @media screen and (max-width: $mobile) {
+    p {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: $mobile-sm) {
+    h3 {
+      font-size: 1.5em;
+    }
   }
 }
 
