@@ -13,6 +13,12 @@
     @include make-flex(9);
     padding: 0;
   }
+
+  @media only screen and (max-width: 760px) {
+    .logo {
+      @include update-flex (11);
+    }
+  }
 }
 
 .info-cols {
@@ -112,6 +118,28 @@
     @include make-flex(5);
   }
 
+  @media screen and (max-width: $portrait) {
+    @include cols($justify: center);
+    margin: 0 auto;
+
+    h4,
+    div {
+      @include update-flex(6);
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    @include cols($dir: column);
+    margin: 0 auto;
+    width: 95%;
+
+    h4,
+    div {
+      @include update-flex(12);
+      padding-bottom: .5em;
+    }
+  }
+
 }
 
 .service-section {
@@ -196,5 +224,24 @@
 
   ul {
     @include make-flex(6);
+  }
+
+  @media screen and (max-width: $portrait) {
+    @include cols($dir: column, $justify: flex-start, $align-items: flex-start);
+
+    .overview,
+    ul {
+      @include update-flex (10);
+      padding-bottom: 1em;
+    }
+  }
+
+  @media screen and (max-width: $mobile-sm) {
+
+    .overview,
+    ul {
+      @include update-flex (12);
+      padding-bottom: 1em;
+    }
   }
 }

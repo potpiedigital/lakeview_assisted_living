@@ -17,6 +17,7 @@
       <a href="mailto:dmiron@lakeviewassistedliving.com">Email: dmiron@lakeviewassistedliving.com</a>
       <div>
         <a href="tel:906-428-7000">Phone: (906)428-7000</a>
+        <br>
         <a href="fax:906-428-7003">Fax: (906)428-7003</a>
       </div>
     </div>
