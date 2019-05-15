@@ -120,6 +120,11 @@ function get_the_custom_excerpt($length){
   return substr( get_the_excerpt(), 0, strrpos( substr( get_the_excerpt(), 0, $length), ' ' ) ).'...';
 }
 
+// function custom_excerpt_length( $length ) {
+// 	return 200;
+// }
+// add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 // Replaces the excerpt "Read More" text by a link
 function new_excerpt_more($more) {
   global $post;

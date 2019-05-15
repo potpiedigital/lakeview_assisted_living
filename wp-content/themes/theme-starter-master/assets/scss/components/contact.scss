@@ -43,5 +43,11 @@
       }
 
     }
+
+    @media screen and (max-width: $portrait) {
+      li {
+        padding: 0;
+      }
+    }
   }
 }

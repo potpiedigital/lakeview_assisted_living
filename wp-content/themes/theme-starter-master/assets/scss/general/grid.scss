@@ -151,6 +151,18 @@
     padding: 0;
     margin: 0;
   }
+
+  @media screen and (max-width: 955px) {
+    .service-group {
+      @include update-flex(6);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .service-group {
+      @include update-flex(12);
+    }
+  }
 }
 
 .highlights-info {
@@ -159,11 +171,20 @@
   margin: 0;
 
   .thumbnail-container {
-    @include make-flex(3);
+    @include make-flex(4);
   }
 
   .post-info {
     @include make-flex(8);
+  }
+
+  @media screen and (max-width: $portrait) {
+    @include cols($dir: column);
+
+    .post-info {
+      @include make-flex(12);
+    }
+
   }
 }
 
@@ -207,11 +228,25 @@
   .wpcf7 {
     @include make-flex(6);
     margin: 0 .5em;
+    width: 100%;
   }
 
   ul {
     @include make-flex(4);
     margin: 0 .5em;
+  }
+
+  @media screen and (max-width: $portrait) {
+    @include cols($dir: column);
+
+    .wpcf7 {
+      @include update-flex(12);
+    }
+
+    ul {
+      @include update-flex(12);
+      margin-top: 1em;
+    }
   }
 }
 
