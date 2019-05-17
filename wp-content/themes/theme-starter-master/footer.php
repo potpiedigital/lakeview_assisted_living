@@ -8,9 +8,9 @@
 	</nav>
   <!--END: Footer Nav-->
   <div class="footer-contact">
-    <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/assets/img/footer-logo.png" /></a>
+    <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/assets/img/logo.svg" /></a>
     <div>
-      <a href="#"><img src="<?php echo get_template_directory_uri();?>/assets/img/facebook.png" /></a>
+      <a href="https://www.facebook.com/Lakeview-Assisted-Living-Memory-Care"><img src="<?php echo get_template_directory_uri();?>/assets/img/facebook.png" /></a>
       <a href="#"><img src="<?php echo get_template_directory_uri();?>/assets/img/instagram.png" /></a>
     </div>
     <div class="personal-contact">

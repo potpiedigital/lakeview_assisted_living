@@ -32,7 +32,7 @@
 
 		<header class="header" id="site-header" role="banner">
       <div class="main-navigation">
-        <a class="logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/assets/img/Lakeview_logo.png" /></a>
+        <a class="logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/assets/img/logo.svg" /></a>
         <nav class="main-nav" id="main-nav" role="navigation">
           <?php wp_nav_menu('menu=mainNav'); // create the mainNav menu inside Appearance menus and go to town -- for more on menus see: https://developer.wordpress.org/reference/functions/wp_nav_menu/ ?>
         </nav>
