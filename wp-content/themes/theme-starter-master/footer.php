@@ -25,7 +25,7 @@
   <hr>
   <div class="sub-footer">
     <p><small>&copy; <?php echo date('Y'); ?> <?php bloginfo('name')?> All Rights Reserved</small></p>
-    <p>Website Design: <a href="https://potpie.digital/">Pot Pie Digital, LLC</a></p>
+    <p>Website by: <a href="https://potpie.digital/">Pot Pie Digital, LLC</a></p>
   </div>
 </footer>
 <!--END: Footer Section-->

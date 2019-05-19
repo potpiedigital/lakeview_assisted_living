@@ -82,7 +82,7 @@ body {
       position: absolute;
       top: 0;
       left: 0;
-      width: 32vw;
+      width: 40vw;
       height: auto;
     }
 
@@ -91,7 +91,7 @@ body {
       z-index: 2;
       top: 35%;
       left: 30%;
-      width: 28vw;
+      width: 40vw;
       height: auto;
     }
 
@@ -101,7 +101,7 @@ body {
       left: 60%;
       width: 28vw;
       height: auto;
-      opacity: 0.65;
+      opacity: .65;
     }
 
     .faded-left-image {
@@ -163,11 +163,11 @@ body {
 
       .center-image {
         top: 10%;
-        left: 55%;
+        left: 50%;
       }
 
       .top-image {
-        left: 10%;
+        left: 5%;
       }
     }
   }
@@ -299,15 +299,14 @@ body {
   }
 
   @media screen and (max-width: $mobile) {
+    h3 {
+      font-size: 1.5em;
+    }
+
     p {
       width: 90%;
       margin: 0 auto;
-    }
-  }
-
-  @media screen and (max-width: $mobile-sm) {
-    h3 {
-      font-size: 1.5em;
+      font-size: 12px;
     }
   }
 }
@@ -317,6 +316,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media screen and (max-width: $mobile) {
+    height: 60vw;
+  }
 }
 
 .swiper-pagination-bullets {

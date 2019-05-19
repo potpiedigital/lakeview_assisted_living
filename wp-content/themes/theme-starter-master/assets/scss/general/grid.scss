@@ -99,7 +99,7 @@
     @include cols($dir: column, $justify: center, $align-items: center);
 
     .founder-info {
-      @include update-flex(10);
+      @include update-flex(12);
     }
 
     .founder-img {
