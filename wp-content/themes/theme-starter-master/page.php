@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main>
+<main class="page-content">
 
 	<?php if (have_posts()) : ?>
 
@@ -10,8 +10,8 @@
 			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
 				<h1><?php the_title(); ?></h1>
-				<time datetime="<?php the_time('c'); ?>" pubdate="pubdate"><?php the_time('F jS, Y'); ?></time>
-				<p>by <?php the_author() ?></p>
+				<!-- <time datetime="<?php the_time('c'); ?>" pubdate="pubdate"><?php the_time('F jS, Y'); ?></time>
+				<p>by <?php the_author() ?></p> -->
 
 				<div class="entry">
           <?php the_content(); ?>

@@ -82,8 +82,12 @@ body {
       position: absolute;
       top: 0;
       left: 0;
-      width: 40vw;
+      width: 25vw;
       height: auto;
+
+      @media screen and (max-width: $mobile) {
+        width: 40vw;
+      }
     }
 
     .center-image {
@@ -91,8 +95,12 @@ body {
       z-index: 2;
       top: 35%;
       left: 30%;
-      width: 40vw;
+      width: 25vw;
       height: auto;
+
+      @media screen and (max-width: $mobile) {
+        width: 40vw;
+      }
     }
 
     .faded-right-image {
