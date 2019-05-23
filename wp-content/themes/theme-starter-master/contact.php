@@ -7,6 +7,7 @@ Template Name: contact
 <?php get_header(); ?>
 
 <main>
+<div class="hero-image" style="background-image: url(<?php the_field('contact_hero'); ?>"></div>
 
 	<?php if (have_posts()) : ?>
 

@@ -3,6 +3,6 @@
   </div>
   <div class="info-content">
     <p><?php the_sub_field('difference_copy'); ?></p>
-    <a class="button" href="<?php the_sub_field('difference_link') ?>"><?php the_sub_field('difference_link_text'); ?></a>
+    <a class="button-2" href="<?php the_sub_field('difference_link') ?>"><?php the_sub_field('difference_link_text'); ?></a>
   </div>
 </section>

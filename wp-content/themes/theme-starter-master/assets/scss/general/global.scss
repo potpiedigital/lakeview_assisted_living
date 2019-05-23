@@ -1,6 +1,7 @@
 body {
   background-color: $white;
   line-height: 1.25;
+  overflow-x: hidden;
 }
 
 .info-background {
@@ -9,7 +10,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 
 // ********* HOMEPAGE ***********
 .copy-block {
@@ -27,11 +27,35 @@ body {
     padding-top: 1em;
   }
 
+  @media screen and (max-width: $landscape) {
+    width: 80%;
+
+    p {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: $portrait) {
+
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    width: 95%;
+
+    p {
+      width: 90%;
+    }
+  }
 }
 
 .main-image-container {
   position: relative;
   width: 80%;
+  max-width: 1800px;
   height: 35em;
   margin: 0 auto;
 
@@ -58,8 +82,12 @@ body {
       position: absolute;
       top: 0;
       left: 0;
-      width: 400px;
+      width: 25vw;
       height: auto;
+
+      @media screen and (max-width: $mobile) {
+        width: 40vw;
+      }
     }
 
     .center-image {
@@ -67,15 +95,19 @@ body {
       z-index: 2;
       top: 35%;
       left: 30%;
-      width: 350px;
+      width: 25vw;
       height: auto;
+
+      @media screen and (max-width: $mobile) {
+        width: 40vw;
+      }
     }
 
     .faded-right-image {
       position: absolute;
       top: 30%;
       left: 60%;
-      width: 350px;
+      width: 28vw;
       height: auto;
       opacity: .65;
     }
@@ -84,12 +116,90 @@ body {
       position: absolute;
       top: 60%;
       left: 5%;
-      width: 350px;
+      width: 28vw;
       height: auto;
-      opacity: .65;
+      opacity: 0.65;
+    }
+  }
+
+  @media screen and (max-width: $portrait) {
+    width: 95%;
+    height: 30em;
+
+    .inner-image-container {
+
+      .image-info {
+        width: 60%;
+        left: 35%;
+      }
+
+      .faded-left-image {
+        top: 40%;
+      }
+
+      .faded-right-image {
+        top: 40%;
+        left: 55%;
+      }
+
+      .center-image {
+        top: 45%;
+      }
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+    height: 20em;
+
+    .inner-image-container {
+
+      .image-info {
+        width: 90%;
+        left: 5%;
+        top: 70%;
+
+        h4 {
+          font-size: 1em;
+        }
+      }
+
+      .faded-left-image,
+      .faded-right-image {
+        display: none;
+      }
+
+      .center-image {
+        top: 10%;
+        left: 50%;
+      }
+
+      .top-image {
+        left: 5%;
+      }
+    }
+  }
+
+  @media screen and (max-width: $mobile-sm) {
+    .inner-image-container {
+
+      .image-info {
+        top: 65%;
+      }
+
+      .top-image {
+        width: 50vw;
+      }
+
+      .center-image {
+        width: 40vw;
+      }
     }
   }
 }
+
+
+
 
 .info-section {
   margin: 5em auto;
@@ -120,7 +230,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     transform-origin: 50% 50%;
-    transition: transform .5s ease;
+    transition: transform 0.5s ease;
   }
 
   &::before {
@@ -131,11 +241,11 @@ body {
     bottom: 0;
     left: 0;
     background-image: linear-gradient(rgb(47, 48, 50));
-    opacity: .5;
+    opacity: 0.5;
     width: 101%;
     height: 100%;
     z-index: 2;
-    transition: opacity .5s ease;
+    transition: opacity 0.5s ease;
   }
 
   h2 {
@@ -147,7 +257,6 @@ body {
   }
 
   &:hover {
-
     .info-background {
       transform: scale(1.15);
     }
@@ -159,7 +268,6 @@ body {
 }
 
 .quote {
-
   blockquote {
     width: 30%;
     text-align: left;
@@ -168,7 +276,7 @@ body {
 
     &::before {
       content: "\201C";
-      font-family: 'Crimson Text', serif;
+      font-family: "Crimson Text", serif;
       font-size: 260px;
       color: $blue;
       line-height: 1.444;
@@ -179,6 +287,9 @@ body {
       width: auto;
     }
 
+    @media screen and (max-width: $mobile) {
+      width: 50%;
+    }
   }
 }
 
@@ -194,31 +305,40 @@ body {
   p {
     padding: 1em 0 1.5em 0;
   }
+
+  @media screen and (max-width: $mobile) {
+    h3 {
+      font-size: 1.5em;
+    }
+
+    p {
+      width: 90%;
+      margin: 0 auto;
+      font-size: 12px;
+    }
+  }
 }
 
-// .swiper-container {
-//   width: 100%;
-//   height: 100%;
-// }
+.swiper-slide {
+  height: 45vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-// .swiper-button-next {
-//   right: 30px;
-// }
+  @media screen and (max-width: $mobile) {
+    height: 60vw;
+  }
+}
 
-// .swiper-button-prev {
-//   left: 30px;
-// }
+.swiper-pagination-bullets {
+  position: inherit;
+  padding-top: 1em;
 
-// .swiper-pagination {
-//   margin: 1em auto;
-//   width: 100%;
-
-//   .swiper-pagination-bullet {
-//     width: 12px;
-//     height: 12px;
-//     margin: 0 .25em;
-//   }
-// }
+  .swiper-pagination-bullet {
+    padding: 0.25em;
+    margin: 0 0.15em;
+  }
+}
 
 .updates-wrapper {
   position: relative;
@@ -236,7 +356,6 @@ body {
   &::after {
     content: "";
     position: absolute;
-    // top: 0;
     right: 0;
     bottom: 0;
     left: 0;
@@ -261,11 +380,9 @@ body {
   @media screen and (max-width: 600px) {
     padding-bottom: 0;
   }
-
 }
 
 .updates {
-
   .thumbnail-container {
     width: 100%;
     height: 16em;
@@ -275,9 +392,7 @@ body {
       width: 100%;
       height: auto;
     }
-
   }
-
 
   h4 {
     font-weight: 500;
@@ -308,17 +423,22 @@ body {
     text-transform: uppercase;
   }
 
-  img {
-    height: 20em;
-    width: auto;
+  .founder-img {
+    img {
+      height: 20em;
+      width: auto;
+    }
   }
-
 }
 
 .founder-info {
-
   p {
     padding: 1em 0;
+  }
+
+  @media screen and (max-width: 800px) {
+    text-align: center;
+    margin-top: 1em;
   }
 }
 

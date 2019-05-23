@@ -6,12 +6,20 @@
 
   .logo {
     @include make-flex(2);
-    padding: .5em;
+    padding: 0;
   }
 
   .main-nav {
     @include make-flex(9);
     padding: 0;
+  }
+
+  @media only screen and (max-width: 760px) {
+    @include cols($justify: flex-start);
+
+    .logo {
+      @include update-flex (6);
+    }
   }
 }
 
@@ -26,6 +34,7 @@
 
   @media screen and (max-width: 1015px) {
     @include cols($dir: column, $align-items: center);
+    margin: 0;
 
     .info-col {
       @include update-flex(11);
@@ -60,6 +69,7 @@
 
   @media screen and (max-width: 600px) {
     @include cols($dir: column, $align-items: center);
+    margin: 0;
 
     .updates-col {
       @include update-flex(10);
@@ -76,15 +86,28 @@
 }
 
 .founder-content {
-  @include cols($justify: center, $align-items: center);
+  @include cols($justify: space-between, $align-items: center);
   margin-top: 2em;
+
+  .founder-img {
+    @include make-flex(4);
+  }
 
   .founder-info {
     @include make-flex(6);
   }
 
-  img {
-    @include make-flex(4);
+  @media screen and (max-width: 800px) {
+    @include cols($dir: column, $justify: center, $align-items: center);
+
+    .founder-info {
+      @include update-flex(12);
+    }
+
+    .founder-img {
+      @include update-flex(10);
+    }
+
   }
 }
 
@@ -95,6 +118,28 @@
   h4,
   div {
     @include make-flex(5);
+  }
+
+  @media screen and (max-width: $portrait) {
+    @include cols($justify: center);
+    margin: 0 auto;
+
+    h4,
+    div {
+      @include update-flex(6);
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    @include cols($dir: column);
+    margin: 0 auto;
+    width: 95%;
+
+    h4,
+    div {
+      @include update-flex(12);
+      padding-bottom: .5em;
+    }
   }
 
 }
@@ -108,6 +153,18 @@
     padding: 0;
     margin: 0;
   }
+
+  @media screen and (max-width: 955px) {
+    .service-group {
+      @include update-flex(6);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .service-group {
+      @include update-flex(12);
+    }
+  }
 }
 
 .highlights-info {
@@ -116,11 +173,20 @@
   margin: 0;
 
   .thumbnail-container {
-    @include make-flex(3);
+    @include make-flex(4);
   }
 
   .post-info {
     @include make-flex(8);
+  }
+
+  @media screen and (max-width: $portrait) {
+    @include cols($dir: column);
+
+    .post-info {
+      @include make-flex(12);
+    }
+
   }
 }
 
@@ -129,33 +195,71 @@
   padding: 0;
   margin: 0;
 
-  img {
+  .image-holder {
     @include make-flex(3);
   }
 
   div {
     @include make-flex(6);
   }
-}
 
-.family-posts {
-  @include cols($justify: center);
-  margin: 0 auto;
-  padding: 0;
-  width: 90%;
-
-  .employee-info {
-    @include make-flex(4);
+  @media screen and (max-width: 1024px) {
+    div {
+      @include update-flex(8);
+    }
   }
 
-  @media screen and (max-width: 1015px) {
+  @media screen and (max-width: 800px) {
     @include cols($dir: column, $align-items: center);
 
+    .image-holder {
+      @include update-flex(8);
+    }
+
     div {
-      @include update-flex(11);
+      @include update-flex(12);
     }
   }
 }
+
+.our-family {
+  @include cols($justify: center);
+
+  .employee-content {
+    @include make-flex(4);
+  }
+
+  @media screen and (max-width: 900px) {
+    .employee-content {
+      @include update-flex(6);
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .employee-content {
+      @include update-flex(12);
+    }
+  }
+}
+
+// .family-posts {
+//   @include cols($justify: center);
+//   margin: 0 auto;
+//   padding: 0;
+//   width: 90%;
+
+//   .employee-info {
+//     @include make-flex(4);
+//   }
+
+//   @media screen and (max-width: 1015px) {
+//     @include cols($dir: column, $align-items: center);
+
+//     div {
+//       @include update-flex(11);
+//     }
+//   }
+// }
 
 .contacting {
   @include cols($justify: space-between);
@@ -164,11 +268,25 @@
   .wpcf7 {
     @include make-flex(6);
     margin: 0 .5em;
+    width: 100%;
   }
 
   ul {
     @include make-flex(4);
     margin: 0 .5em;
+  }
+
+  @media screen and (max-width: $portrait) {
+    @include cols($dir: column);
+
+    .wpcf7 {
+      @include update-flex(12);
+    }
+
+    ul {
+      @include update-flex(12);
+      margin-top: 1em;
+    }
   }
 }
 
@@ -181,5 +299,24 @@
 
   ul {
     @include make-flex(6);
+  }
+
+  @media screen and (max-width: $portrait) {
+    @include cols($dir: column, $justify: flex-start, $align-items: flex-start);
+
+    .overview,
+    ul {
+      @include update-flex (10);
+      padding-bottom: 1em;
+    }
+  }
+
+  @media screen and (max-width: $mobile-sm) {
+
+    .overview,
+    ul {
+      @include update-flex (12);
+      padding-bottom: 1em;
+    }
   }
 }

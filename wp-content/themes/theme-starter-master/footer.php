@@ -8,15 +8,16 @@
 	</nav>
   <!--END: Footer Nav-->
   <div class="footer-contact">
-    <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/assets/img/footer-logo.png" /></a>
+    <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/assets/img/logo.svg" /></a>
     <div>
-      <a href="#"><img src="<?php echo get_template_directory_uri();?>/assets/img/facebook.png" /></a>
+      <a href="https://www.facebook.com/Lakeview-Assisted-Living-Memory-Care"><img src="<?php echo get_template_directory_uri();?>/assets/img/facebook.png" /></a>
       <a href="#"><img src="<?php echo get_template_directory_uri();?>/assets/img/instagram.png" /></a>
     </div>
     <div class="personal-contact">
       <a href="mailto:dmiron@lakeviewassistedliving.com">Email: dmiron@lakeviewassistedliving.com</a>
       <div>
         <a href="tel:906-428-7000">Phone: (906)428-7000</a>
+        <br>
         <a href="fax:906-428-7003">Fax: (906)428-7003</a>
       </div>
     </div>
@@ -24,7 +25,7 @@
   <hr>
   <div class="sub-footer">
     <p><small>&copy; <?php echo date('Y'); ?> <?php bloginfo('name')?> All Rights Reserved</small></p>
-    <p>Website Design: <a href="https://potpie.digital/">Pot Pie Digital, LLC</a></p>
+    <p>Website by: <a href="https://potpie.digital/">Pot Pie Digital, LLC</a></p>
   </div>
 </footer>
 <!--END: Footer Section-->

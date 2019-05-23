@@ -1,18 +1,29 @@
-<section class="our-family">
+<section class="family-posts">
   <h2><?php the_sub_field('employee_title'); ?></h2>
-  <div>
-		<?php $posts = get_sub_field('employee_listing'); if( $posts ): ?>
-		<ul class="family-posts">
-		<?php foreach( $posts as $post): // IMPORTANT - variable must be called $post ?>
-			<?php setup_postdata($post); ?>
-			<div class="employee-info">
-			  <div class="family-image"><?php the_post_thumbnail(); ?></div>
-				<h4><?php the_title(); ?></h4>
-				<p><?php the_excerpt(); ?></p>
-			</div>
-		<?php endforeach; ?>
-		</ul>
-		<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-		<?php endif; ?>
+  <?php
+		// check if the repeater field has rows of data
+		if( have_rows('employee_list') ):
+        // display a sub field value
+	?>
+	<div class="our-family">
+		<?php // loop through the rows of data
+			while ( have_rows('employee_list') ) : the_row();
+    ?>
+    <div class="employee-content">
+      <div class="employee-img-holder">
+        <img src="<?php the_sub_field('employee_image'); ?>" />
+      </div>
+      <div class="employee-info">
+        <h4><?php the_sub_field('employee_name'); ?></h4>
+        <h6><?php the_sub_field('employee_title'); ?></h6>
+        <p><?php the_sub_field('employee_bio'); ?></p>
+      </div>
+    </div>
+		<?php endwhile; ?>
 	</div>
+	<?php
+		else :
+    	// no rows found
+		endif;
+	?>
 </section>

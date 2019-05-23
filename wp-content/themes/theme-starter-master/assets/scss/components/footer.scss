@@ -13,9 +13,38 @@ footer {
 
       a {
         color: $white;
+
+        @media screen and (max-width: $mobile) {
+          font-size: 12px;
+        }
       }
     }
   }
+
+  @media screen and (max-width: $mobile) {
+    .menu-footernav-container {
+
+      ul {
+        width: 95%;
+        margin: 0 auto;
+        padding: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: $mobile-sm) {
+    .menu-footernav-container {
+
+      ul {
+        li {
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 .footer-contact {
@@ -81,5 +110,9 @@ hr {
       color: $white;
       text-decoration: none;
     }
+  }
+
+  @media screen and (max-width: $mobile) {
+    width: 95%;
   }
 }

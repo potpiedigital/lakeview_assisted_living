@@ -32,10 +32,23 @@
 
 		<header class="header" id="site-header" role="banner">
       <div class="main-navigation">
-        <a class="logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/assets/img/Lakeview_logo.png" /></a>
+        <div class="logo">
+          <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri();?>/assets/img/logo.svg" /></a>
+        </div>
         <nav class="main-nav" id="main-nav" role="navigation">
           <?php wp_nav_menu('menu=mainNav'); // create the mainNav menu inside Appearance menus and go to town -- for more on menus see: https://developer.wordpress.org/reference/functions/wp_nav_menu/ ?>
         </nav>
+        <nav role='navigation' class='hambuger-menu' >
+						<div id="menuToggle">
+							<input type="checkbox" />
+							<span></span>
+							<span></span>
+							<span></span>
+							<ul id="menu">
+							<?php wp_nav_menu('menu=mainNav'); // create the mainNav menu inside Appearance menus and go to town -- for more on menus see: https://developer.wordpress.org/reference/functions/wp_nav_menu/ ?>
+							</ul>
+						</div>
+					</nav>
       </div>
 			<!-- depending on what the mock calls for text, image, svg you can handle this differently images should get alt text that matches the page title svgs should get visually hidden elements we can look into adding title to the anchor tag and see if that gets pulled in for SEO -->
 			<?php if ( is_front_page() ) { ?>

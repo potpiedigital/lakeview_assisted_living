@@ -6,6 +6,21 @@
 .main-navigation {
   background-color: $white;
   opacity: .7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 3;
+
+  .logo {
+    a {
+      img {
+        width: 120px;
+        height: auto;
+      }
+    }
+  }
 }
 
 .menu {
@@ -25,5 +40,11 @@
         color: $blue;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .main-nav {
+    display: none;
   }
 }

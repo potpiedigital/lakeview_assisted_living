@@ -1,17 +1,28 @@
 <section class="highlights">
-  <?php $posts = get_sub_field('highlights'); if( $posts ): ?>
-  <ul>
-  <?php foreach( $posts as $post): // IMPORTANT - variable must be called $post ?>
-    <?php setup_postdata($post); ?>
+<?php
+		// check if the repeater field has rows of data
+		if( have_rows('highlights') ):
+        // display a sub field value
+	?>
+
+		<?php // loop through the rows of data
+			while ( have_rows('highlights') ) : the_row();
+    ?>
     <div class="highlights-info">
-      <div class="thumbnail-container"><?php the_post_thumbnail(); ?></div>
+      <div class="thumbnail-container">
+        <img src="<?php the_sub_field('highlight_image'); ?>" />
+      </div>
       <div class="post-info">
-        <h4><?php the_title(); ?></h4>
-        <p><?php the_excerpt(); ?></p>
+        <h3><?php the_sub_field('highlight_title') ?></h3>
+        <?php the_sub_field('highlight_copy') ?>
       </div>
     </div>
-  <?php endforeach; ?>
-  </ul>
-  <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-  <?php endif; ?>
+  <?php endwhile; ?>
+
+
+	<?php
+		else :
+    	// no rows found
+		endif;
+	?>
 </section>
