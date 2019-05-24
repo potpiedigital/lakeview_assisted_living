@@ -242,25 +242,6 @@
   }
 }
 
-// .family-posts {
-//   @include cols($justify: center);
-//   margin: 0 auto;
-//   padding: 0;
-//   width: 90%;
-
-//   .employee-info {
-//     @include make-flex(4);
-//   }
-
-//   @media screen and (max-width: 1015px) {
-//     @include cols($dir: column, $align-items: center);
-
-//     div {
-//       @include update-flex(11);
-//     }
-//   }
-// }
-
 .contacting {
   @include cols($justify: space-between);
 
@@ -318,5 +299,34 @@
       @include update-flex (12);
       padding-bottom: 1em;
     }
+  }
+}
+
+.applications {
+  @include cols($justify: space-between);
+  width: 80%;
+  margin: 1.5em auto;
+
+  .job-details {
+    @include make-flex(6);
+  }
+
+  .apply-submit {
+    @include make-flex(6);
+  }
+
+  @media screen and (max-width: $mobile) {
+
+    .job-details {
+      @include update-flex(12);
+    }
+
+    .apply-submit {
+      @include update-flex(12);
+    }
+  }
+
+  @media screen and (max-width: $mobile-sm) {
+    width: 95%;
   }
 }

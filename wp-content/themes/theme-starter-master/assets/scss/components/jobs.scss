@@ -1,24 +1,17 @@
-.page-content {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+.applications {
+  padding-top: 2em;
 
-  h1 {
-    padding-bottom: 2em;
+  .job-details {
+
+    li {
+      padding-bottom: 1em;
+    }
   }
-}
 
-// sass-lint:disable class-name-format
-.job_listing {
-  h1 {
-    text-align: center;
-    padding-top: 3em;
-    padding-bottom: 2em;
+  .apply-submit {
+
+    p {
+      padding-bottom: 1em;
+    }
   }
-}
-
-// sass-lint:disable class-name-format
-.single_job_listing {
-  width: 80%;
-  margin: 0 auto;
 }
