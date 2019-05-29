@@ -288,7 +288,7 @@ body {
     }
 
     @media screen and (max-width: $mobile) {
-      width: 50%;
+      width: 60%;
     }
   }
 }
@@ -391,6 +391,10 @@ body {
     img {
       width: 100%;
       height: auto;
+    }
+
+    @media screen and (max-width: $mobile) {
+      height: 12em;
     }
   }
 

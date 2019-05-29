@@ -1,4 +1,5 @@
-"use strict";
+// "use strict";
+/* eslint-disable */
 
 // Requires + Variables
 var gulp = require("gulp"),
@@ -61,7 +62,7 @@ gulp.task("sass-lint", function() {
 gulp.task("browserSync", function() {
   browserSync.init({
     open: false,
-    proxy: "http://localhost/", // <--change me to your local environment url
+    proxy: "http://localhost:8888/", // <--change me to your local environment url
     // timestamps: false,
     port: 3000
   });
