@@ -17,6 +17,10 @@
       height: auto;
     }
 
+    @media screen and (max-width: $mobile) {
+      width: 55em;
+    }
+
   }
 
   div {

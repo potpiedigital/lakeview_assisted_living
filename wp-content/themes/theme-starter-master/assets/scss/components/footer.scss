@@ -36,11 +36,21 @@ footer {
     .menu-footernav-container {
 
       ul {
+
         li {
           a {
             font-size: 14px;
           }
         }
+      }
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .menu-footernav-container {
+
+      ul {
+        display: none;
       }
     }
   }

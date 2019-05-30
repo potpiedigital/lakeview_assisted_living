@@ -258,7 +258,7 @@
   }
 
   @media screen and (max-width: $portrait) {
-    @include cols($dir: column);
+    @include cols($dir: column, $align-items: center, $justify: center);
 
     .wpcf7 {
       @include update-flex(12);
