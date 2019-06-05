@@ -2,6 +2,10 @@ body {
   background-color: $white;
   line-height: 1.25;
   overflow-x: hidden;
+
+  @media screen and (max-width: $mobile) {
+    line-height: 1.5;
+  }
 }
 
 .info-background {
@@ -45,6 +49,7 @@ body {
 
   @media screen and (max-width: $mobile) {
     width: 95%;
+    margin: 2em auto;
 
     p {
       width: 90%;
@@ -157,7 +162,7 @@ body {
       .image-info {
         width: 90%;
         left: 5%;
-        top: 70%;
+        top: 90%;
 
         h4 {
           font-size: 1em;
@@ -203,6 +208,10 @@ body {
 
 .info-section {
   margin: 5em auto;
+
+  @media screen and (max-width: $mobile) {
+    margin-top: 8em;
+  }
 }
 
 .info-cols {
@@ -285,10 +294,15 @@ body {
       left: -80px;
       height: 5em;
       width: auto;
+
+      @media screen and (max-width: $mobile) {
+        top: -120px;
+        left: -70px;
+      }
     }
 
     @media screen and (max-width: $mobile) {
-      width: 50%;
+      width: 60%;
     }
   }
 }
@@ -391,6 +405,10 @@ body {
     img {
       width: 100%;
       height: auto;
+    }
+
+    @media screen and (max-width: $mobile) {
+      height: 12em;
     }
   }
 

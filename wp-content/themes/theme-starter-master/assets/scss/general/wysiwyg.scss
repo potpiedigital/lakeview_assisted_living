@@ -5,6 +5,14 @@
 // use it on a project to project basis.
 
 /* !-- WP WYSIWYG Editor Styles -- */
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
 .entry-content img {
   margin: 0 0 1.5em 0;
 }
@@ -14,6 +22,10 @@ img.alignleft {
   margin-right: 1.5em;
   display: inline;
   float: left;
+
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 1.5em;
+  }
 }
 
 .alignright,
@@ -21,6 +33,10 @@ img.alignright {
   margin-left: 1.5em;
   display: inline;
   float: right;
+
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 1.5em;
+  }
 }
 
 .aligncenter,
@@ -29,6 +45,10 @@ img.aligncenter {
   margin-left: auto;
   display: block;
   clear: both;
+
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 1.5em;
+  }
 }
 
 .alignnone,

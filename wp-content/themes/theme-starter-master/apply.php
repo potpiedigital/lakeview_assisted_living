@@ -7,26 +7,20 @@ Template Name: apply
 <?php get_header(); ?>
 
 <main>
-
-
-  <div class="hero-image" style="background-image: url(<?php the_field(''); ?>"></div>
+  <div class="hero-image" style="background-image: url(<?php the_field('apply_hero'); ?>"></div>
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-  <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
-
-		<h1><?php the_title(); ?></h1>
-		<time datetime="<?php the_time('c'); ?>" pubdate="pubdate"><?php the_time('F jS, Y'); ?></time>
-		<p>by <?php the_author(); ?></p>
-
-		<div>
-			<?php the_content(); ?>
-			<?php wp_link_pages('<p><strong>Pages:</strong> ', '</p>', 'number'); ?>
-		</div>
-
-		<!--BEGIN: Post Meta Data-->
-		<div><?php the_tags('Tags: ', ', ', '<br />'); ?></div>
-		<!--END: Post Meta Data-->
-
-	</article>
+	<div class="applications">
+    <?php if(get_field('available_jobs')): ?>
+    <ul class="job-details">
+      <?php while(has_sub_field('available_jobs')): ?>
+      <li><h4><?php the_sub_field('job_title'); ?></h4><?php the_sub_field('short_job_description'); ?></li>
+      <?php endwhile; ?>
+    </ul>
+    <?php endif; ?>
+    <div class="apply-submit">
+      <?php the_field('jobs_form'); ?>
+    </div>
+	</div>
 	<?php endwhile; endif; ?>
 </main>
 

@@ -5,6 +5,10 @@
   h1 {
     text-align: center;
   }
+
+  // @media screen and (max-width: $mobile) {
+  //   width: 90%;
+  // }
 }
 
 .wpcf7-textarea {
@@ -19,7 +23,7 @@
 }
 
 .wpcf7-submit {
-  padding: 2em 5em;
+  padding: 20px 50px;
   background-color: $blue;
   border-radius: 5px;
   color: $white;
