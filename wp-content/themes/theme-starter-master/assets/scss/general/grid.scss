@@ -86,7 +86,7 @@
 }
 
 .founder-content {
-  @include cols($justify: space-between, $align-items: center);
+  @include cols($justify: center, $align-items: center);
   margin-top: 2em;
 
   .founder-img {
